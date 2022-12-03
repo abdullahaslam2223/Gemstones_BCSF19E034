@@ -1,0 +1,13 @@
+﻿.theme-colors {
+    background-color: darkblue;
+}
+
+.theme-btn {
+    background-color: transparent;
+    color: darkblue;
+    border: 1px solid darkblue;
+}
+.theme-btn:hover {
+    background-color: darkblue;
+    color: white;
+}
