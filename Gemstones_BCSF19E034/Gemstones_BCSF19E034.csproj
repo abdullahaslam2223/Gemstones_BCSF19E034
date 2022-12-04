@@ -75,10 +75,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\css\adminPanel\custom.css" />
     <Content Include="assets\css\bootstrap.css" />
     <Content Include="assets\css\loginPage\custom.css" />
     <Content Include="assets\images\loginPage\Gemstones.png" />
     <Content Include="assets\images\loginPage\Logo.png" />
+    <Content Include="assets\js\bootstrap.js" />
+    <Content Include="assets\js\popper.min.js" />
     <Content Include="GS_LoginForm.aspx" />
     <Content Include="GS_HomePage.aspx" />
     <Content Include="GS_Logout.aspx" />
@@ -163,9 +166,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="assets\js\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

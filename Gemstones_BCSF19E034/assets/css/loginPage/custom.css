@@ -1,13 +1,19 @@
-﻿.theme-colors {
+﻿:root {
+    --primary: darkblue;
+    --secondary: orange;
+}
+
+
+.theme-colors {
     background-color: darkblue;
 }
 
 .theme-btn {
     background-color: transparent;
-    color: darkblue;
-    border: 1px solid darkblue;
+    color: var(--primary);
+    border: 1px solid var(--primary);
 }
 .theme-btn:hover {
-    background-color: darkblue;
+    background-color: var(--primary);
     color: white;
 }

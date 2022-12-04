@@ -4,19 +4,95 @@
 
 <html>
 <head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Gemstones</title>
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="assets/css/adminPanel/custom.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div>
-            <p id="User_Email_Info" runat="server"></p>
-            <a href="GS_Logout.aspx">Logout</a>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
+
+    <!--Main Navigation-->
+    <header>
+        <!-- Sidebar -->
+        <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+            <div class="position-sticky">
+                <div class="list-group list-group-flush mx-3 mt-4">
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple active" aria-current="true">
+                        <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Main dashboard</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple">
+                        <i class="fas fa-chart-area fa-fw me-3"></i><span>Webiste traffic</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+                        class="fas fa-lock fa-fw me-3"></i><span>Password</span></a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+                        class="fas fa-chart-line fa-fw me-3"></i><span>Analytics</span></a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple">
+                        <i class="fas fa-chart-pie fa-fw me-3"></i><span>SEO</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+                        class="fas fa-chart-bar fa-fw me-3"></i><span>Orders</span></a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+                        class="fas fa-globe fa-fw me-3"></i><span>International</span></a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+                        class="fas fa-building fa-fw me-3"></i><span>Partners</span></a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+                        class="fas fa-calendar fa-fw me-3"></i><span>Calendar</span></a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+                        class="fas fa-users fa-fw me-3"></i><span>Users</span></a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+                        class="fas fa-money-bill fa-fw me-3"></i><span>Sales</span></a>
+                </div>
+            </div>
+        </nav>
+        <!-- Sidebar -->
+
+        <!-- Navbar -->
+        <nav id="main-navbar" class="navbar navbar-expand-lg fixed-top">
+            <!-- Container wrapper -->
+            <div class="container-fluid">
+                <!-- Brand -->
+                <a class="navbar-brand" href="#">
+                    <img src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp" height="25" alt="MDB Logo"
+                        loading="lazy" />
+                </a>
+                <!-- Right links -->
+                <ul class="navbar-nav ms-auto d-flex flex-row">
+                    
+                    <!-- Link -->
+                    <li class="nav-item">
+                        <p class="nav-link" id="User_Email_Info" runat="server"></p>
+                    </li>
+                    <!-- Link -->
+                    <li class="nav-item me-3 me-lg-0">
+                        <a class="nav-link" href="GS_Logout.aspx">Logout</a>
+                    </li>
+                    <li class="nav-item mt-2">
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp" class="rounded-circle"
+                        height="30" alt="Avatar" loading="lazy" />
+                    </li>
+                </ul>
+            </div>
+            <!-- Container wrapper -->
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <!--Main Navigation-->
+
+    <!--Main layout-->
+    <main style="margin-top: 58px;">
+        <div class="container pt-4">
+            <form id="form1" runat="server">
+                <div>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </form>
         </div>
-    </form>
+    </main>
+    <!--Main layout-->
 </body>
 </html>
