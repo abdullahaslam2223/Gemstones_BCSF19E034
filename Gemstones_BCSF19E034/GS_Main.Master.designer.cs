@@ -15,13 +15,13 @@ namespace Gemstones_BCSF19E034
     {
 
         /// <summary>
-        /// head control.
+        /// AdminHead control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder AdminHead;
 
         /// <summary>
         /// User_Email_Info control.
@@ -33,21 +33,12 @@ namespace Gemstones_BCSF19E034
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl User_Email_Info;
 
         /// <summary>
-        /// form1 control.
+        /// AdminBody control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
-        /// <summary>
-        /// ContentPlaceHolder1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder AdminBody;
     }
 }

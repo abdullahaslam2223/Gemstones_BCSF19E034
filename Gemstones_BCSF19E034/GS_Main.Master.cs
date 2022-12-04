@@ -11,6 +11,10 @@ namespace Gemstones_BCSF19E034
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user_id"] == null)
+            {
+                Response.Redirect("GS_LoginForm.aspx");
+            }
             User_Email_Info.InnerText = "Signed In as " + Session["user_email"];
         }
     }

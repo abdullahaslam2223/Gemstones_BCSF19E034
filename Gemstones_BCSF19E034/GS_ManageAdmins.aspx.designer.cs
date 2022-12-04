@@ -7,11 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Gemstones_BCSF19E034
-{
-
-
-    public partial class GS_ManageAdmins
-    {
+namespace Gemstones_BCSF19E034 {
+    
+    
+    public partial class GS_ManageAdmins {
     }
 }
