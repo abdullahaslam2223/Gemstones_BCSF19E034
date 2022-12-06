@@ -3,7 +3,6 @@
     --secondary: orange;
 }
 
-
 .gradient-custom-3 {
     /* fallback for old browsers */
     background: #84fab0;
@@ -23,6 +22,12 @@
 }
 
 .theme-btn {
+    background-color: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary) !important;
+}
+.theme-btn:hover {
     background-color: var(--primary);
     color: white !important;
+    transition: 0.5s;
 }

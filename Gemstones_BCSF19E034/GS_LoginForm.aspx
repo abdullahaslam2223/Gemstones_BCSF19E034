@@ -40,9 +40,6 @@
                                     <div class="text-center pt-1 mb-5 pb-1">
                                         <asp:Button CssClass="btn theme-btn btn-block fa-lg mb-3 d-block w-100" Text="Log in" ID="Login_Submit_Btn" OnClick="Login_Submit_Btn_Click" runat="server" />
 
-                                        <%--<p class="text-center text-danger" id="Login_Error"></p>--%>
-                                        
-                                        <%--Bootstrap Dismissable Alert--%>
                                         <div id="Login_Error" runat="server"></div>
 
                                         <asp:HyperLink NavigateUrl="#" CssClass="text-muted" Text="Forgot password?" runat="server"></asp:HyperLink>
