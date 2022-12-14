@@ -23,8 +23,8 @@ namespace Gemstones_BCSF19E034
 					Admin_First_Name.Text = admin.user_firstName;
 					Admin_Last_Name.Text = admin.user_lastName;
 					Admin_Email.Text = admin.user_email;
-					Admin_Password.Text = admin.user_password;
-					Admin_Conf_Password.Text = admin.user_password;
+					Admin_Password.Text = Encryption.DecodeFrom64(admin.user_password);
+					Admin_Conf_Password.Text = Encryption.DecodeFrom64(admin.user_password);
 				}
 			}
         }
@@ -40,19 +40,26 @@ namespace Gemstones_BCSF19E034
 					admin.user_firstName = Admin_First_Name.Text;
                     admin.user_lastName = Admin_Last_Name.Text;
 					admin.user_email = Admin_Email.Text;
-                    admin.user_password = Admin_Password.Text;
-                    admin.user_password = Admin_Conf_Password.Text;
+                    admin.user_password = Encryption.EncodePasswordToBase64(Admin_Password.Text);
                     admin.status = true;
                     db.SaveChanges();
                     Admin_Success.InnerHtml = "<div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\">Admin edited successfully</div>";
                 }
 				else
 				{
+					string email = Admin_Email.Text;
+					tbl_admin_users em = db.tbl_admin_users.FirstOrDefault(v => v.user_email == email);
+					if(em != null)
+					{
+						EmailExist.Text = "Email already exist!";
+                        return;
+					}
+
                     tbl_admin_users admin = new tbl_admin_users();
                     admin.user_firstName = Admin_First_Name.Text;
                     admin.user_lastName = Admin_Last_Name.Text;
                     admin.user_email = Admin_Email.Text;
-                    admin.user_password = Admin_Password.Text;
+                    admin.user_password = Encryption.EncodePasswordToBase64(Admin_Password.Text);
                     admin.status = true;
                     db.tbl_admin_users.Add(admin);
                     db.SaveChanges();

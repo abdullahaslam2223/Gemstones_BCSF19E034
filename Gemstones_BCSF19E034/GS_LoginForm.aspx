@@ -9,7 +9,7 @@
     <link href="assets/css/loginPage/custom.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="container">
+    <div class="container mt-5">
         <div class="row d-flex justify-content-center align-items-center">
             <%--Centering the form--%>
             <div class="col-xl-10">
@@ -19,7 +19,7 @@
                         <div class="col-lg-6">
                             <div class="card-body p-md-5 mx-md-4">
                                 <div class="text-center mt-1 mb-3 pb-1">
-                                    <asp:Image ImageUrl="~/assets/images/loginPage/Gemstones.png" Width="185px" AlternateText="Logo" runat="server" />
+                                    <asp:Image ImageUrl="~/assets/images/logos/logo-no-background.svg" Width="185px" AlternateText="Logo" runat="server" />
                                 </div>
 
                                 <form id="Login_Form" runat="server">
@@ -54,7 +54,7 @@
                         </div>
                         <div class="col-lg-6 d-flex align-items-center theme-colors">
                             <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                                <asp:Image ImageUrl="~/assets/images/loginPage/Logo.png" AlternateText="Logo" Width="185" runat="server" />
+                                <asp:Image ImageUrl="~/assets/images/loginPage/Gemstones.png" AlternateText="Logo" Width="185" runat="server" />
                                 <h4 class="mb-4">We are more than just a company</h4>
                                 <p class="small mb-0">
                                     We are selling the precious stones of any type

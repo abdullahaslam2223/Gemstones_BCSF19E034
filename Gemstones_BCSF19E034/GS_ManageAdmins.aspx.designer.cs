@@ -78,6 +78,24 @@ namespace Gemstones_BCSF19E034
         protected global::System.Web.UI.WebControls.TextBox Admin_Conf_Password;
 
         /// <summary>
+        /// Password_Confirmation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator Password_Confirmation;
+
+        /// <summary>
+        /// EmailExist control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label EmailExist;
+
+        /// <summary>
         /// btn_Admin control.
         /// </summary>
         /// <remarks>

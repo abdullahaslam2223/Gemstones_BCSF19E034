@@ -25,8 +25,8 @@ namespace Gemstones_BCSF19E034
         {
             using(Gemstones_BCSF19E034Entities db = new Gemstones_BCSF19E034Entities())
             {
-                var result = db.GS_Admin_DoLogin(Login_Email.Text, Login_Password.Text).ToList();
-                if(result.Count > 0)
+                var result = db.GS_Admin_DoLogin(Login_Email.Text, Encryption.EncodePasswordToBase64(Login_Password.Text)).ToList();
+                if (result.Count > 0)
                 {
                     Session["user_id"] = result[0].user_id;
                     Session["user_email"] = result[0].user_email;
