@@ -83,6 +83,7 @@
     <Content Include="assets\images\loginPage\Logo.png" />
     <Content Include="assets\js\bootstrap.js" />
     <Content Include="assets\js\popper.min.js" />
+    <Content Include="GS_List_Admins.aspx" />
     <Content Include="GS_LoginForm.aspx" />
     <Content Include="GS_HomePage.aspx" />
     <Content Include="GS_Logout.aspx" />
@@ -102,6 +103,16 @@
   <ItemGroup>
     <Compile Include="GS_Admin_DoLogin_Result.cs">
       <DependentUpon>GS_Main_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GS_Get_Admins_Result.cs">
+      <DependentUpon>GS_Main_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GS_List_Admins.aspx.cs">
+      <DependentUpon>GS_List_Admins.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GS_List_Admins.aspx.designer.cs">
+      <DependentUpon>GS_List_Admins.aspx</DependentUpon>
     </Compile>
     <Compile Include="GS_LoginForm.aspx.cs">
       <DependentUpon>GS_LoginForm.aspx</DependentUpon>

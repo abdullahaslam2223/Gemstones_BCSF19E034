@@ -15,66 +15,84 @@ namespace Gemstones_BCSF19E034
     {
 
         /// <summary>
-        /// Add_Admin_First_Name control.
+        /// View_Admin_Lnk control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Add_Admin_First_Name;
+        protected global::System.Web.UI.WebControls.HyperLink View_Admin_Lnk;
 
         /// <summary>
-        /// Add_Admin_Last_Name control.
+        /// Admin_First_Name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Add_Admin_Last_Name;
+        protected global::System.Web.UI.WebControls.TextBox Admin_First_Name;
 
         /// <summary>
-        /// Add_Admin_Email control.
+        /// Admin_Last_Name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Add_Admin_Email;
+        protected global::System.Web.UI.WebControls.TextBox Admin_Last_Name;
 
         /// <summary>
-        /// Add_Admin_Password control.
+        /// Admin_Email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Add_Admin_Password;
+        protected global::System.Web.UI.WebControls.TextBox Admin_Email;
 
         /// <summary>
-        /// Add_Admin_Conf_Password control.
+        /// regexEmailValid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Add_Admin_Conf_Password;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regexEmailValid;
 
         /// <summary>
-        /// btn_Add_Admin control.
+        /// Admin_Password control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Add_Admin;
+        protected global::System.Web.UI.WebControls.TextBox Admin_Password;
 
         /// <summary>
-        /// Add_Admin_Success control.
+        /// Admin_Conf_Password control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Add_Admin_Success;
+        protected global::System.Web.UI.WebControls.TextBox Admin_Conf_Password;
+
+        /// <summary>
+        /// btn_Admin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_Admin;
+
+        /// <summary>
+        /// Admin_Success control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Admin_Success;
     }
 }

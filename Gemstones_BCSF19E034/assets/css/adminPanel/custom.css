@@ -45,6 +45,6 @@ body {
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
 }
 
-#main-navbar {
-    background-color: #edf0ee;
+.theme-heading {
+    color: var(--primary);
 }

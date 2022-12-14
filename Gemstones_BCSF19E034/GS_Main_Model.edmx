@@ -20,6 +20,10 @@
           <Parameter Name="email" Type="varchar" Mode="In" />
           <Parameter Name="password" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="GS_Delete_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GS_Get_Admins" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="Gemstones_BCSF19E034ModelStoreContainer">
           <EntitySet Name="tbl_admin_users" EntityType="Self.tbl_admin_users" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -32,11 +36,11 @@
             <PropertyRef Name="user_id" />
           </Key>
           <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_firstName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_lastName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="user_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="user_password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="status" Type="Boolean" Nullable="false" />
-          <Property Name="user_firstName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="user_lastName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="Gemstones_BCSF19E034Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tbl_admin_users" EntityType="Self.tbl_admin_users" />
@@ -44,9 +48,23 @@
             <Parameter Name="email" Mode="In" Type="String" />
             <Parameter Name="password" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="GS_Delete_Admin">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GS_Get_Admins" ReturnType="Collection(Gemstones_BCSF19E034Model.GS_Get_Admins_Result)" />
         </EntityContainer>
         <ComplexType Name="GS_Admin_DoLogin_Result">
           <Property Type="Int32" Name="user_id" Nullable="false" />
+          <Property Type="String" Name="user_firstName" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="user_lastName" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="user_email" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="user_password" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="status" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="GS_Get_Admins_Result">
+          <Property Type="Int32" Name="user_id" Nullable="false" />
+          <Property Type="String" Name="user_firstName" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="user_lastName" Nullable="false" MaxLength="20" />
           <Property Type="String" Name="user_email" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="user_password" Nullable="false" MaxLength="50" />
           <Property Type="Boolean" Name="status" Nullable="false" />
@@ -60,9 +78,9 @@
           <EntitySetMapping Name="tbl_admin_users">
             <EntityTypeMapping TypeName="Gemstones_BCSF19E034Model.tbl_admin_users">
               <MappingFragment StoreEntitySet="tbl_admin_users">
-                <ScalarProperty Name="user_lastName" ColumnName="user_lastName" />
-                <ScalarProperty Name="user_firstName" ColumnName="user_firstName" />
                 <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_firstName" ColumnName="user_firstName" />
+                <ScalarProperty Name="user_lastName" ColumnName="user_lastName" />
                 <ScalarProperty Name="user_email" ColumnName="user_email" />
                 <ScalarProperty Name="user_password" ColumnName="user_password" />
                 <ScalarProperty Name="status" ColumnName="status" />
@@ -73,6 +91,21 @@
             <ResultMapping>
               <ComplexTypeMapping TypeName="Gemstones_BCSF19E034Model.GS_Admin_DoLogin_Result">
                 <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_firstName" ColumnName="user_firstName" />
+                <ScalarProperty Name="user_lastName" ColumnName="user_lastName" />
+                <ScalarProperty Name="user_email" ColumnName="user_email" />
+                <ScalarProperty Name="user_password" ColumnName="user_password" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GS_Delete_Admin" FunctionName="Gemstones_BCSF19E034Model.Store.GS_Delete_Admin" />
+          <FunctionImportMapping FunctionImportName="GS_Get_Admins" FunctionName="Gemstones_BCSF19E034Model.Store.GS_Get_Admins">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Gemstones_BCSF19E034Model.GS_Get_Admins_Result">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_firstName" ColumnName="user_firstName" />
+                <ScalarProperty Name="user_lastName" ColumnName="user_lastName" />
                 <ScalarProperty Name="user_email" ColumnName="user_email" />
                 <ScalarProperty Name="user_password" ColumnName="user_password" />
                 <ScalarProperty Name="status" ColumnName="status" />

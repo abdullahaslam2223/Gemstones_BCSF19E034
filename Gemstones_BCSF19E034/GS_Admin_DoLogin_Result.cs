@@ -14,6 +14,8 @@ namespace Gemstones_BCSF19E034
     public partial class GS_Admin_DoLogin_Result
     {
         public int user_id { get; set; }
+        public string user_firstName { get; set; }
+        public string user_lastName { get; set; }
         public string user_email { get; set; }
         public string user_password { get; set; }
         public bool status { get; set; }

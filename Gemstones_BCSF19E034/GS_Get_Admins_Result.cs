@@ -10,9 +10,8 @@
 namespace Gemstones_BCSF19E034
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class tbl_admin_users
+    public partial class GS_Get_Admins_Result
     {
         public int user_id { get; set; }
         public string user_firstName { get; set; }
