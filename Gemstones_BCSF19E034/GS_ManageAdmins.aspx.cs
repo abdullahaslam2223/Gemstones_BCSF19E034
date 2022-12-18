@@ -35,6 +35,13 @@ namespace Gemstones_BCSF19E034
 			{
 				if (Request.QueryString["id"] != null)
 				{
+                    string email = Admin_Email.Text;
+                    tbl_admin_users em = db.tbl_admin_users.FirstOrDefault(v => v.user_email == email);
+                    if (em != null)
+                    {
+                        EmailExist.Text = "Email already exist!";
+                        return;
+                    }
                     int admin_id = Convert.ToInt32(Request.QueryString["id"]);
 					tbl_admin_users admin = db.tbl_admin_users.FirstOrDefault(v => v.user_id == admin_id);
 					admin.user_firstName = Admin_First_Name.Text;
