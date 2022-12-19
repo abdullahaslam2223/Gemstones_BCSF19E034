@@ -28,6 +28,11 @@ namespace Gemstones_BCSF19E034
         }
     
         public virtual DbSet<tbl_admin_users> tbl_admin_users { get; set; }
+        public virtual DbSet<tbl_products_stone> tbl_products_stone { get; set; }
+        public virtual DbSet<tbl_stone_categories> tbl_stone_categories { get; set; }
+        public virtual DbSet<tbl_stone_colors> tbl_stone_colors { get; set; }
+        public virtual DbSet<tbl_stone_shapes> tbl_stone_shapes { get; set; }
+        public virtual DbSet<tbl_stone_sizes> tbl_stone_sizes { get; set; }
     
         public virtual ObjectResult<GS_Admin_DoLogin_Result> GS_Admin_DoLogin(string email, string password)
         {
@@ -54,6 +59,11 @@ namespace Gemstones_BCSF19E034
         public virtual ObjectResult<GS_Get_Admins_Result> GS_Get_Admins()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GS_Get_Admins_Result>("GS_Get_Admins");
+        }
+    
+        public virtual ObjectResult<GS_Get_Products_Result> GS_Get_Products()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GS_Get_Products_Result>("GS_Get_Products");
         }
     }
 }

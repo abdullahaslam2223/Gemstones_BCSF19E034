@@ -16,6 +16,102 @@
           <Property Name="user_password" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="status" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="tbl_products_stone">
+          <Key>
+            <PropertyRef Name="stone_id" />
+          </Key>
+          <Property Name="stone_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="stone_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="stone_price" Type="int" Nullable="false" />
+          <Property Name="stone_description" Type="nvarchar" MaxLength="150" />
+          <Property Name="stone_image_url" Type="nvarchar" MaxLength="100" />
+          <Property Name="stone_category_id" Type="int" />
+          <Property Name="stone_color_id" Type="int" />
+          <Property Name="stone_weight" Type="float" />
+          <Property Name="stone_shape_id" Type="int" />
+          <Property Name="stone_origin" Type="varchar" MaxLength="100" />
+          <Property Name="stone_size_id" Type="int" />
+          <Property Name="stone_hardness" Type="float" />
+          <Property Name="stone_dispersion" Type="float" />
+          <Property Name="stone_specific_gravity" Type="float" />
+          <Property Name="stone_density" Type="float" />
+        </EntityType>
+        <EntityType Name="tbl_stone_categories">
+          <Key>
+            <PropertyRef Name="category_id" />
+          </Key>
+          <Property Name="category_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="category_name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_stone_colors">
+          <Key>
+            <PropertyRef Name="color_id" />
+          </Key>
+          <Property Name="color_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="color_name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_stone_shapes">
+          <Key>
+            <PropertyRef Name="shape_id" />
+          </Key>
+          <Property Name="shape_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="shape_name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_stone_sizes">
+          <Key>
+            <PropertyRef Name="size_id" />
+          </Key>
+          <Property Name="size_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="size_name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_tbl_products_stone_tbl_stone_categories">
+          <End Role="tbl_stone_categories" Type="Self.tbl_stone_categories" Multiplicity="0..1" />
+          <End Role="tbl_products_stone" Type="Self.tbl_products_stone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_stone_categories">
+              <PropertyRef Name="category_id" />
+            </Principal>
+            <Dependent Role="tbl_products_stone">
+              <PropertyRef Name="stone_category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_products_stone_tbl_stone_colors">
+          <End Role="tbl_stone_colors" Type="Self.tbl_stone_colors" Multiplicity="0..1" />
+          <End Role="tbl_products_stone" Type="Self.tbl_products_stone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_stone_colors">
+              <PropertyRef Name="color_id" />
+            </Principal>
+            <Dependent Role="tbl_products_stone">
+              <PropertyRef Name="stone_color_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_products_stone_tbl_stone_shapes">
+          <End Role="tbl_stone_shapes" Type="Self.tbl_stone_shapes" Multiplicity="0..1" />
+          <End Role="tbl_products_stone" Type="Self.tbl_products_stone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_stone_shapes">
+              <PropertyRef Name="shape_id" />
+            </Principal>
+            <Dependent Role="tbl_products_stone">
+              <PropertyRef Name="stone_shape_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_products_stone_tbl_stone_sizes">
+          <End Role="tbl_stone_sizes" Type="Self.tbl_stone_sizes" Multiplicity="0..1" />
+          <End Role="tbl_products_stone" Type="Self.tbl_products_stone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_stone_sizes">
+              <PropertyRef Name="size_id" />
+            </Principal>
+            <Dependent Role="tbl_products_stone">
+              <PropertyRef Name="stone_size_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Function Name="GS_Admin_DoLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="email" Type="varchar" Mode="In" />
           <Parameter Name="password" Type="varchar" Mode="In" />
@@ -24,8 +120,30 @@
           <Parameter Name="id" Type="int" Mode="In" />
         </Function>
         <Function Name="GS_Get_Admins" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GS_Get_Products" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="Gemstones_BCSF19E034ModelStoreContainer">
           <EntitySet Name="tbl_admin_users" EntityType="Self.tbl_admin_users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_products_stone" EntityType="Self.tbl_products_stone" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_stone_categories" EntityType="Self.tbl_stone_categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_stone_colors" EntityType="Self.tbl_stone_colors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_stone_shapes" EntityType="Self.tbl_stone_shapes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_stone_sizes" EntityType="Self.tbl_stone_sizes" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tbl_products_stone_tbl_stone_categories" Association="Self.FK_tbl_products_stone_tbl_stone_categories">
+            <End Role="tbl_stone_categories" EntitySet="tbl_stone_categories" />
+            <End Role="tbl_products_stone" EntitySet="tbl_products_stone" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_products_stone_tbl_stone_colors" Association="Self.FK_tbl_products_stone_tbl_stone_colors">
+            <End Role="tbl_stone_colors" EntitySet="tbl_stone_colors" />
+            <End Role="tbl_products_stone" EntitySet="tbl_products_stone" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_products_stone_tbl_stone_shapes" Association="Self.FK_tbl_products_stone_tbl_stone_shapes">
+            <End Role="tbl_stone_shapes" EntitySet="tbl_stone_shapes" />
+            <End Role="tbl_products_stone" EntitySet="tbl_products_stone" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_products_stone_tbl_stone_sizes" Association="Self.FK_tbl_products_stone_tbl_stone_sizes">
+            <End Role="tbl_stone_sizes" EntitySet="tbl_stone_sizes" />
+            <End Role="tbl_products_stone" EntitySet="tbl_products_stone" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -49,9 +167,31 @@
             <Parameter Name="password" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="GS_Delete_Admin">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GS_Get_Admins" ReturnType="Collection(Gemstones_BCSF19E034Model.GS_Get_Admins_Result)" />
+          <EntitySet Name="tbl_products_stone" EntityType="Gemstones_BCSF19E034Model.tbl_products_stone" />
+          <EntitySet Name="tbl_stone_categories" EntityType="Gemstones_BCSF19E034Model.tbl_stone_categories" />
+          <EntitySet Name="tbl_stone_colors" EntityType="Gemstones_BCSF19E034Model.tbl_stone_colors" />
+          <EntitySet Name="tbl_stone_shapes" EntityType="Gemstones_BCSF19E034Model.tbl_stone_shapes" />
+          <EntitySet Name="tbl_stone_sizes" EntityType="Gemstones_BCSF19E034Model.tbl_stone_sizes" />
+          <AssociationSet Name="FK_tbl_products_stone_tbl_stone_categories" Association="Gemstones_BCSF19E034Model.FK_tbl_products_stone_tbl_stone_categories">
+            <End Role="tbl_stone_categories" EntitySet="tbl_stone_categories" />
+            <End Role="tbl_products_stone" EntitySet="tbl_products_stone" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_products_stone_tbl_stone_colors" Association="Gemstones_BCSF19E034Model.FK_tbl_products_stone_tbl_stone_colors">
+            <End Role="tbl_stone_colors" EntitySet="tbl_stone_colors" />
+            <End Role="tbl_products_stone" EntitySet="tbl_products_stone" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_products_stone_tbl_stone_shapes" Association="Gemstones_BCSF19E034Model.FK_tbl_products_stone_tbl_stone_shapes">
+            <End Role="tbl_stone_shapes" EntitySet="tbl_stone_shapes" />
+            <End Role="tbl_products_stone" EntitySet="tbl_products_stone" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_products_stone_tbl_stone_sizes" Association="Gemstones_BCSF19E034Model.FK_tbl_products_stone_tbl_stone_sizes">
+            <End Role="tbl_stone_sizes" EntitySet="tbl_stone_sizes" />
+            <End Role="tbl_products_stone" EntitySet="tbl_products_stone" />
+          </AssociationSet>
+          <FunctionImport Name="GS_Get_Products" ReturnType="Collection(Gemstones_BCSF19E034Model.GS_Get_Products_Result)" />
         </EntityContainer>
         <ComplexType Name="GS_Admin_DoLogin_Result">
           <Property Type="Int32" Name="user_id" Nullable="false" />
@@ -68,6 +208,127 @@
           <Property Type="String" Name="user_email" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="user_password" Nullable="false" MaxLength="50" />
           <Property Type="Boolean" Name="status" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="tbl_products_stone">
+          <Key>
+            <PropertyRef Name="stone_id" />
+          </Key>
+          <Property Name="stone_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="stone_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="stone_price" Type="Int32" Nullable="false" />
+          <Property Name="stone_description" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="stone_image_url" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="stone_category_id" Type="Int32" />
+          <Property Name="stone_color_id" Type="Int32" />
+          <Property Name="stone_weight" Type="Double" />
+          <Property Name="stone_shape_id" Type="Int32" />
+          <Property Name="stone_origin" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="stone_size_id" Type="Int32" />
+          <Property Name="stone_hardness" Type="Double" />
+          <Property Name="stone_dispersion" Type="Double" />
+          <Property Name="stone_specific_gravity" Type="Double" />
+          <Property Name="stone_density" Type="Double" />
+          <NavigationProperty Name="tbl_stone_categories" Relationship="Gemstones_BCSF19E034Model.FK_tbl_products_stone_tbl_stone_categories" FromRole="tbl_products_stone" ToRole="tbl_stone_categories" />
+          <NavigationProperty Name="tbl_stone_colors" Relationship="Gemstones_BCSF19E034Model.FK_tbl_products_stone_tbl_stone_colors" FromRole="tbl_products_stone" ToRole="tbl_stone_colors" />
+          <NavigationProperty Name="tbl_stone_shapes" Relationship="Gemstones_BCSF19E034Model.FK_tbl_products_stone_tbl_stone_shapes" FromRole="tbl_products_stone" ToRole="tbl_stone_shapes" />
+          <NavigationProperty Name="tbl_stone_sizes" Relationship="Gemstones_BCSF19E034Model.FK_tbl_products_stone_tbl_stone_sizes" FromRole="tbl_products_stone" ToRole="tbl_stone_sizes" />
+        </EntityType>
+        <EntityType Name="tbl_stone_categories">
+          <Key>
+            <PropertyRef Name="category_id" />
+          </Key>
+          <Property Name="category_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="category_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_products_stone" Relationship="Gemstones_BCSF19E034Model.FK_tbl_products_stone_tbl_stone_categories" FromRole="tbl_stone_categories" ToRole="tbl_products_stone" />
+        </EntityType>
+        <EntityType Name="tbl_stone_colors">
+          <Key>
+            <PropertyRef Name="color_id" />
+          </Key>
+          <Property Name="color_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="color_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_products_stone" Relationship="Gemstones_BCSF19E034Model.FK_tbl_products_stone_tbl_stone_colors" FromRole="tbl_stone_colors" ToRole="tbl_products_stone" />
+        </EntityType>
+        <EntityType Name="tbl_stone_shapes">
+          <Key>
+            <PropertyRef Name="shape_id" />
+          </Key>
+          <Property Name="shape_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="shape_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_products_stone" Relationship="Gemstones_BCSF19E034Model.FK_tbl_products_stone_tbl_stone_shapes" FromRole="tbl_stone_shapes" ToRole="tbl_products_stone" />
+        </EntityType>
+        <EntityType Name="tbl_stone_sizes">
+          <Key>
+            <PropertyRef Name="size_id" />
+          </Key>
+          <Property Name="size_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="size_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_products_stone" Relationship="Gemstones_BCSF19E034Model.FK_tbl_products_stone_tbl_stone_sizes" FromRole="tbl_stone_sizes" ToRole="tbl_products_stone" />
+        </EntityType>
+        <Association Name="FK_tbl_products_stone_tbl_stone_categories">
+          <End Type="Gemstones_BCSF19E034Model.tbl_stone_categories" Role="tbl_stone_categories" Multiplicity="0..1" />
+          <End Type="Gemstones_BCSF19E034Model.tbl_products_stone" Role="tbl_products_stone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_stone_categories">
+              <PropertyRef Name="category_id" />
+            </Principal>
+            <Dependent Role="tbl_products_stone">
+              <PropertyRef Name="stone_category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_products_stone_tbl_stone_colors">
+          <End Type="Gemstones_BCSF19E034Model.tbl_stone_colors" Role="tbl_stone_colors" Multiplicity="0..1" />
+          <End Type="Gemstones_BCSF19E034Model.tbl_products_stone" Role="tbl_products_stone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_stone_colors">
+              <PropertyRef Name="color_id" />
+            </Principal>
+            <Dependent Role="tbl_products_stone">
+              <PropertyRef Name="stone_color_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_products_stone_tbl_stone_shapes">
+          <End Type="Gemstones_BCSF19E034Model.tbl_stone_shapes" Role="tbl_stone_shapes" Multiplicity="0..1" />
+          <End Type="Gemstones_BCSF19E034Model.tbl_products_stone" Role="tbl_products_stone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_stone_shapes">
+              <PropertyRef Name="shape_id" />
+            </Principal>
+            <Dependent Role="tbl_products_stone">
+              <PropertyRef Name="stone_shape_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_products_stone_tbl_stone_sizes">
+          <End Type="Gemstones_BCSF19E034Model.tbl_stone_sizes" Role="tbl_stone_sizes" Multiplicity="0..1" />
+          <End Type="Gemstones_BCSF19E034Model.tbl_products_stone" Role="tbl_products_stone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_stone_sizes">
+              <PropertyRef Name="size_id" />
+            </Principal>
+            <Dependent Role="tbl_products_stone">
+              <PropertyRef Name="stone_size_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="GS_Get_Products_Result">
+          <Property Type="Int64" Name="stone_id" Nullable="false" />
+          <Property Type="String" Name="stone_name" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="stone_price" Nullable="false" />
+          <Property Type="String" Name="stone_description" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="stone_image_url" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="category_name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="color_name" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="stone_weight" Nullable="true" />
+          <Property Type="String" Name="shape_name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="stone_origin" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="size_name" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="stone_hardness" Nullable="true" />
+          <Property Type="Double" Name="stone_dispersion" Nullable="true" />
+          <Property Type="Double" Name="stone_specific_gravity" Nullable="true" />
+          <Property Type="Double" Name="stone_density" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -109,6 +370,80 @@
                 <ScalarProperty Name="user_email" ColumnName="user_email" />
                 <ScalarProperty Name="user_password" ColumnName="user_password" />
                 <ScalarProperty Name="status" ColumnName="status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tbl_products_stone">
+            <EntityTypeMapping TypeName="Gemstones_BCSF19E034Model.tbl_products_stone">
+              <MappingFragment StoreEntitySet="tbl_products_stone">
+                <ScalarProperty Name="stone_density" ColumnName="stone_density" />
+                <ScalarProperty Name="stone_specific_gravity" ColumnName="stone_specific_gravity" />
+                <ScalarProperty Name="stone_dispersion" ColumnName="stone_dispersion" />
+                <ScalarProperty Name="stone_hardness" ColumnName="stone_hardness" />
+                <ScalarProperty Name="stone_size_id" ColumnName="stone_size_id" />
+                <ScalarProperty Name="stone_origin" ColumnName="stone_origin" />
+                <ScalarProperty Name="stone_shape_id" ColumnName="stone_shape_id" />
+                <ScalarProperty Name="stone_weight" ColumnName="stone_weight" />
+                <ScalarProperty Name="stone_color_id" ColumnName="stone_color_id" />
+                <ScalarProperty Name="stone_category_id" ColumnName="stone_category_id" />
+                <ScalarProperty Name="stone_image_url" ColumnName="stone_image_url" />
+                <ScalarProperty Name="stone_description" ColumnName="stone_description" />
+                <ScalarProperty Name="stone_price" ColumnName="stone_price" />
+                <ScalarProperty Name="stone_name" ColumnName="stone_name" />
+                <ScalarProperty Name="stone_id" ColumnName="stone_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_stone_categories">
+            <EntityTypeMapping TypeName="Gemstones_BCSF19E034Model.tbl_stone_categories">
+              <MappingFragment StoreEntitySet="tbl_stone_categories">
+                <ScalarProperty Name="category_name" ColumnName="category_name" />
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_stone_colors">
+            <EntityTypeMapping TypeName="Gemstones_BCSF19E034Model.tbl_stone_colors">
+              <MappingFragment StoreEntitySet="tbl_stone_colors">
+                <ScalarProperty Name="color_name" ColumnName="color_name" />
+                <ScalarProperty Name="color_id" ColumnName="color_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_stone_shapes">
+            <EntityTypeMapping TypeName="Gemstones_BCSF19E034Model.tbl_stone_shapes">
+              <MappingFragment StoreEntitySet="tbl_stone_shapes">
+                <ScalarProperty Name="shape_name" ColumnName="shape_name" />
+                <ScalarProperty Name="shape_id" ColumnName="shape_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_stone_sizes">
+            <EntityTypeMapping TypeName="Gemstones_BCSF19E034Model.tbl_stone_sizes">
+              <MappingFragment StoreEntitySet="tbl_stone_sizes">
+                <ScalarProperty Name="size_name" ColumnName="size_name" />
+                <ScalarProperty Name="size_id" ColumnName="size_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GS_Get_Products" FunctionName="Gemstones_BCSF19E034Model.Store.GS_Get_Products">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Gemstones_BCSF19E034Model.GS_Get_Products_Result">
+                <ScalarProperty Name="stone_id" ColumnName="stone_id" />
+                <ScalarProperty Name="stone_name" ColumnName="stone_name" />
+                <ScalarProperty Name="stone_price" ColumnName="stone_price" />
+                <ScalarProperty Name="stone_description" ColumnName="stone_description" />
+                <ScalarProperty Name="stone_image_url" ColumnName="stone_image_url" />
+                <ScalarProperty Name="category_name" ColumnName="category_name" />
+                <ScalarProperty Name="color_name" ColumnName="color_name" />
+                <ScalarProperty Name="stone_weight" ColumnName="stone_weight" />
+                <ScalarProperty Name="shape_name" ColumnName="shape_name" />
+                <ScalarProperty Name="stone_origin" ColumnName="stone_origin" />
+                <ScalarProperty Name="size_name" ColumnName="size_name" />
+                <ScalarProperty Name="stone_hardness" ColumnName="stone_hardness" />
+                <ScalarProperty Name="stone_dispersion" ColumnName="stone_dispersion" />
+                <ScalarProperty Name="stone_specific_gravity" ColumnName="stone_specific_gravity" />
+                <ScalarProperty Name="stone_density" ColumnName="stone_density" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
