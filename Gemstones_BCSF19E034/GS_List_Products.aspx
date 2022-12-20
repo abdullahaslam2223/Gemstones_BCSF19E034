@@ -8,6 +8,11 @@
         </div>
         <asp:GridView ID="GV_Products" CssClass="table table-bordered" OnRowCommand="GV_Products_RowCommand" OnRowEditing="GV_Products_RowEditing" OnRowDeleting="GV_Products_RowDeleting" runat="server" AutoGenerateColumns="false">
             <Columns>
+                <asp:TemplateField HeaderText="Image">
+                    <ItemTemplate>
+                        <asp:Image ImageUrl='F:\BS-CS\7th Semester\ECommerce Application Development\Semester Project (Gemstones)\Gemstones_BCSF19E034\Gemstones_BCSF19E034\assets\images\products\<%=Eval("stone_image_url")%>' runat="server" />
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:BoundField DataField="stone_name" HeaderText="Stone Name" />
                 <asp:BoundField DataField="stone_price" HeaderText="Stone Price" />
                 <asp:BoundField DataField="category_name" HeaderText="Stone Category" />

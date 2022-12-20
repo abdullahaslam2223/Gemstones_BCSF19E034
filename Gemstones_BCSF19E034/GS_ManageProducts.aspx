@@ -114,7 +114,7 @@
                                 </div>
                                 <div class="col-lg-6 bg-indigo text-white">
                                     <div class="p-5">
-                                        <h3 class="fw-normal mb-5">here...</h3>
+                                        <h3 class="fw-normal mb-5">Gemstones</h3>
 
                                         <%--<div class="col-md-6 mb-4 pb-2 mb-md-0 pb-md-0">--%>
                                         <div class="mb-4 pb-2">

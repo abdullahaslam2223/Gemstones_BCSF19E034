@@ -34,8 +34,8 @@ namespace Gemstones_BCSF19E034
             {
                 using (Gemstones_BCSF19E034Entities db = new Gemstones_BCSF19E034Entities())
                 {
-                    //db.GS_Delete_Admin(Convert.ToInt32(e.CommandArgument));
-                    
+                    db.GS_Delete_Product(Convert.ToInt32(e.CommandArgument));
+
                 }
                 FillProducts();
             }

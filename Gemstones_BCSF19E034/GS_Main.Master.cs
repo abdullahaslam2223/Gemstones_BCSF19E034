@@ -48,4 +48,9 @@ namespace Gemstones_BCSF19E034
             return result;
         }
     }
+
+    public class Configurations
+    {
+        public static string ImagePath = "/assets/images/products/";
+    }
 }

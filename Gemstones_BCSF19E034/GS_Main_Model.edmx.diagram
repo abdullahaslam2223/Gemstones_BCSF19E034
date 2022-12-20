@@ -4,17 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="48359faaedec42d989c766de56ffd20b" Name="Diagram1">
-        <EntityTypeShape EntityType="Gemstones_BCSF19E034Model.tbl_admin_users" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Gemstones_BCSF19E034Model.tbl_products_stone" Width="1.5" PointX="5.625" PointY="1" />
-        <EntityTypeShape EntityType="Gemstones_BCSF19E034Model.tbl_stone_categories" Width="1.5" PointX="3.375" PointY="10.375" />
-        <EntityTypeShape EntityType="Gemstones_BCSF19E034Model.tbl_stone_colors" Width="1.5" PointX="3.375" PointY="8.125" />
-        <EntityTypeShape EntityType="Gemstones_BCSF19E034Model.tbl_stone_shapes" Width="1.5" PointX="3.375" PointY="5.75" />
-        <EntityTypeShape EntityType="Gemstones_BCSF19E034Model.tbl_stone_sizes" Width="1.5" PointX="3.375" PointY="2.625" />
-        <AssociationConnector Association="Gemstones_BCSF19E034Model.FK_tbl_products_stone_tbl_stone_categories" />
-        <AssociationConnector Association="Gemstones_BCSF19E034Model.FK_tbl_products_stone_tbl_stone_colors" />
-        <AssociationConnector Association="Gemstones_BCSF19E034Model.FK_tbl_products_stone_tbl_stone_shapes" />
-        <AssociationConnector Association="Gemstones_BCSF19E034Model.FK_tbl_products_stone_tbl_stone_sizes" />
+      <Diagram DiagramId="bdf0d8be40284d368acee7d8ab7d2d50" Name="Diagram1">
+        <EntityTypeShape EntityType="Gemstones_BCSF19E034Model.tbl_admin_users" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gemstones_BCSF19E034Model.tbl_products_stone" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gemstones_BCSF19E034Model.tbl_stone_categories" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gemstones_BCSF19E034Model.tbl_stone_colors" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gemstones_BCSF19E034Model.tbl_stone_shapes" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gemstones_BCSF19E034Model.tbl_stone_sizes" Width="1.5" PointX="0.75" PointY="10.375" IsExpanded="true" />
+        <AssociationConnector Association="Gemstones_BCSF19E034Model.FK_tbl_products_stone_tbl_stone_categories" ManuallyRouted="false" />
+        <AssociationConnector Association="Gemstones_BCSF19E034Model.FK_tbl_products_stone_tbl_stone_colors" ManuallyRouted="false" />
+        <AssociationConnector Association="Gemstones_BCSF19E034Model.FK_tbl_products_stone_tbl_stone_shapes" ManuallyRouted="false" />
+        <AssociationConnector Association="Gemstones_BCSF19E034Model.FK_tbl_products_stone_tbl_stone_sizes" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
