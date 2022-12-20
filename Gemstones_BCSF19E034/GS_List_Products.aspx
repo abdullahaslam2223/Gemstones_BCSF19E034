@@ -10,8 +10,7 @@
             <Columns>
                 <asp:BoundField DataField="stone_name" HeaderText="Stone Name" />
                 <asp:BoundField DataField="stone_price" HeaderText="Stone Price" />
-                <asp:BoundField DataField="stone_description" HeaderText="Stone Description" />
-                <asp:BoundField DataField="stone_price" HeaderText="Stone Price" />
+                <asp:BoundField DataField="category_name" HeaderText="Stone Category" />
                 <asp:TemplateField HeaderText="Actions">
                     <ItemTemplate>
                         <asp:Button CssClass="btn btn-sm btn-warning mb-1" ID="Edit_Product_Btn" CommandName="edit" CommandArgument='<%# Eval("stone_id") %>' Text="Edit" runat="server" />

@@ -26,7 +26,19 @@ namespace Gemstones_BCSF19E034
 
         protected void GV_Products_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            Response.Write("<alert>Action performed</alert>");
+            if (e.CommandName == "edit")
+            {
+                Response.Redirect("GS_ManageProducts.aspx?id=" + e.CommandArgument);
+            }
+            else
+            {
+                using (Gemstones_BCSF19E034Entities db = new Gemstones_BCSF19E034Entities())
+                {
+                    //db.GS_Delete_Admin(Convert.ToInt32(e.CommandArgument));
+                    
+                }
+                FillProducts();
+            }
         }
 
         protected void GV_Products_RowEditing(object sender, GridViewEditEventArgs e)
