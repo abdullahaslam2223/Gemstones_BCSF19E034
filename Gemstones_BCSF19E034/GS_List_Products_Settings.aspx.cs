@@ -73,5 +73,16 @@ namespace Gemstones_BCSF19E034
                 }
             }
         }
+
+        //protected void Add_Category_Btn_ServerClick(object sender, EventArgs e)
+        //{
+        //    using(Gemstones_BCSF19E034Entities db = new Gemstones_BCSF19E034Entities())
+        //    {
+        //        tbl_stone_categories tbl = new tbl_stone_categories();
+        //        tbl.category_name = Add_Product_Category.Value;
+        //        db.tbl_stone_categories.Add(tbl);
+        //        db.SaveChanges();
+        //    }
+        //}
     }
 }
