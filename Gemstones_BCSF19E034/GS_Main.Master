@@ -36,6 +36,7 @@
                         <span>Main dashboard</span>
                     </a>
                     <a href="GS_List_Products.aspx" class="list-group-item list-group-item-action py-2 ripple"><span>Products</span></a>
+                    <a href="GS_List_Products_Settings.aspx" class="list-group-item list-group-item-action py-2 ripple"><span>Product Settings</span></a>
                     <a href="GS_List_Admins.aspx" class="list-group-item list-group-item-action py-2 ripple"><span>Admins</span></a>
                    <%-- <a href="#" class="list-group-item list-group-item-action py-2 ripple">
                         <span>Webiste traffic</span>

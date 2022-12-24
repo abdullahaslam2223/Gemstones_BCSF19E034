@@ -6,6 +6,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="AdminBody" runat="server">
 
     <section class="h-100 h-custom gradient-custom-2">
+        <div style="background-color: #edf0ee;" class="px-3 py-3 mb-3 rounded">
+            <asp:HyperLink NavigateUrl="~/GS_List_Products.aspx" CssClass="btn btn-outline-info" Text="View Products" runat="server"></asp:HyperLink>
+        </div>
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12">
@@ -16,16 +19,6 @@
                                 <div class="col-lg-6">
                                     <div class="p-5">
                                         <h3 class="fw-normal mb-5" style="color: darkblue;">Add Product</h3>
-
-                                        <%--<div class="mb-4 pb-2">
-                                            <select class="select px-5 py-1">
-                                                <option value="1">Title</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                                <option value="4">Four</option>
-                                            </select>
-                                        </div>--%>
-
                                         <div class="row">
                                             <div class="col-md-6 mb-4 pb-2">
 
@@ -56,10 +49,6 @@
 
                                         <div class="mb-4 pb-2">
                                             <asp:DropDownList ID="Product_Stone_Category" CssClass="select" runat="server">
-                                                <%--<asp:ListItem Text="Select Category"></asp:ListItem>
-                                                <asp:ListItem Text="Pearl"></asp:ListItem>
-                                                <asp:ListItem Text="Diamond"></asp:ListItem>
-                                                <asp:ListItem Text="Ruby"></asp:ListItem>--%>
                                             </asp:DropDownList>
 
                                         </div>
@@ -72,14 +61,6 @@
                                                 <asp:ListItem Text="Blue"></asp:ListItem>
                                             </asp:DropDownList>
                                         </div>
-
-                                        <%--<div class="mb-4 pb-2">
-                                            <div class="form-outline">
-                                                <input type="text" id="form3Examplev4" class="form-control form-control-lg" />
-                                                <label class="form-label" for="form3Examplev4">Position</label>
-                                            </div>
-                                        </div>--%>
-
                                         <div class="row">
                                             <div class="col-md-6 mb-4 pb-2">
 
@@ -154,12 +135,12 @@
 
                                             </div>
                                         </div>
-                                        
+
 
                                         <div class="mb-4 pb-2">
                                             <div class="form-outline form-white">
                                                 <asp:TextBox ID="Product_Stone_Density" CssClass="form-control form-control-lg" TextMode="Number" runat="server"></asp:TextBox>
-                                                    <asp:Label CssClass="form-label" AssociatedControlID="Product_Stone_Density" Text="Stone Density" runat="server"></asp:Label>
+                                                <asp:Label CssClass="form-label" AssociatedControlID="Product_Stone_Density" Text="Stone Density" runat="server"></asp:Label>
                                             </div>
                                         </div>
 

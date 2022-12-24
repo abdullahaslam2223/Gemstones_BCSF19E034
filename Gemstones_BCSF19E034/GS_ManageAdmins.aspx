@@ -3,8 +3,8 @@
     <link href="assets/css/manageAdmins/custom.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="AdminBody" runat="server">
-    <div style="background-color: #edf0ee;" class="px-3 mb-3 rounded">
-    <asp:HyperLink NavigateUrl="~/GS_List_Admins.aspx" ID="View_Admin_Lnk" CssClass="btn btn-outline-success my-3" Text="View Admins" runat="server"></asp:HyperLink>
+    <div style="background-color: #edf0ee;" class="px-3 py-3 mb-3 rounded">
+    <asp:HyperLink NavigateUrl="~/GS_List_Admins.aspx" ID="View_Admin_Lnk" CssClass="btn btn-outline-info" Text="View Admins" runat="server"></asp:HyperLink>
     </div>
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12 col-md-9 col-lg-7 col-xl-6 pb-5">

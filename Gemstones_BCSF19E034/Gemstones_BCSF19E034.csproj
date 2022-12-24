@@ -86,6 +86,7 @@
     <Content Include="assets\js\popper.min.js" />
     <Content Include="GS_List_Admins.aspx" />
     <Content Include="GS_List_Products.aspx" />
+    <Content Include="GS_List_Products_Settings.aspx" />
     <Content Include="GS_LoginForm.aspx" />
     <Content Include="GS_HomePage.aspx" />
     <Content Include="GS_Logout.aspx" />
@@ -126,6 +127,13 @@
     </Compile>
     <Compile Include="GS_List_Products.aspx.designer.cs">
       <DependentUpon>GS_List_Products.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GS_List_Products_Settings.aspx.cs">
+      <DependentUpon>GS_List_Products_Settings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GS_List_Products_Settings.aspx.designer.cs">
+      <DependentUpon>GS_List_Products_Settings.aspx</DependentUpon>
     </Compile>
     <Compile Include="GS_LoginForm.aspx.cs">
       <DependentUpon>GS_LoginForm.aspx</DependentUpon>

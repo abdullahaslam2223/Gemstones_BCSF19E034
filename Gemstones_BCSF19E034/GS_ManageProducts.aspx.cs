@@ -54,7 +54,7 @@ namespace Gemstones_BCSF19E034
                     Product_Stone_Category.DataBind();
                     Product_Stone_Category.Items.Insert(0, new ListItem("Select Category", "0"));
                     Product_Stone_Category.Items[0].Attributes.Add("Disabled", "Disabled");
-                    Product_Stone_Category.Items[0].Attributes.Add("Selected", "True");
+                    //Product_Stone_Category.Items[0].Attributes.Add("Selected", "True");
                 }
             }
         }
@@ -73,7 +73,7 @@ namespace Gemstones_BCSF19E034
                     Product_Stone_Color.DataBind();
                     Product_Stone_Color.Items.Insert(0, new ListItem("Select Color", "0"));
                     Product_Stone_Color.Items[0].Attributes.Add("Disabled", "Disabled");
-                    Product_Stone_Color.Items[0].Attributes.Add("Selected", "True");
+                    //Product_Stone_Color.Items[0].Attributes.Add("Selected", "True");
                 }
             }
         }
@@ -91,7 +91,7 @@ namespace Gemstones_BCSF19E034
                     Product_Stone_Shape.DataBind();
                     Product_Stone_Shape.Items.Insert(0, new ListItem("Select Shape", "0"));
                     Product_Stone_Shape.Items[0].Attributes.Add("Disabled", "Disabled");
-                    Product_Stone_Shape.Items[0].Attributes.Add("Selected", "True");
+                    //Product_Stone_Shape.Items[0].Attributes.Add("Selected", "True");
                 }
             }
         }
@@ -109,14 +109,14 @@ namespace Gemstones_BCSF19E034
                     Product_Stone_Size.DataBind();
                     Product_Stone_Size.Items.Insert(0, new ListItem("Select Size", "0"));
                     Product_Stone_Size.Items[0].Attributes.Add("Disabled", "Disabled");
-                    Product_Stone_Size.Items[0].Attributes.Add("Selected", "True");
+                    //Product_Stone_Size.Items[0].Attributes.Add("Selected", "True");
                 }
             }
         }
 
         protected void Add_Product_Btn_Click(object sender, EventArgs e)
         {
-            Product_Stone_Image.SaveAs(MapPath("/assets/images/products/" + Product_Stone_Image.FileName));
+            //Product_Stone_Image.SaveAs(MapPath("/assets/images/products/" + Product_Stone_Image.FileName));
             using (Gemstones_BCSF19E034Entities db = new Gemstones_BCSF19E034Entities())
             {
                 tbl_products_stone stone = null;
@@ -134,13 +134,13 @@ namespace Gemstones_BCSF19E034
                 stone.stone_price = Convert.ToInt32(Product_Stone_Price.Text);
                 stone.stone_description = Product_Stone_Description.Text;
                 stone.stone_image_url = Product_Stone_Image.FileName;
-                stone.stone_category_id = Product_Stone_Category.SelectedIndex;
-                stone.stone_color_id = Product_Stone_Color.SelectedIndex;
+                stone.stone_category_id = Product_Stone_Category.SelectedIndex == 0 ? 1 : Product_Stone_Category.SelectedIndex;
+                stone.stone_color_id = Product_Stone_Color.SelectedIndex == 0 ? 1 : Product_Stone_Color.SelectedIndex;
                 stone.stone_weight = Convert.ToInt32(Product_Stone_Weight.Text);
                 stone.stone_hardness = Convert.ToInt32(Product_Stone_Hardness.Text);
-                stone.stone_shape_id = Product_Stone_Shape.SelectedIndex;
+                stone.stone_shape_id = Product_Stone_Shape.SelectedIndex == 0 ? 1 : Product_Stone_Shape.SelectedIndex;
                 stone.stone_origin = Product_Stone_Origin.Text;
-                stone.stone_size_id = Product_Stone_Size.SelectedIndex;
+                stone.stone_size_id = Product_Stone_Size.SelectedIndex == 0 ? 1 : Product_Stone_Size.SelectedIndex;
                 stone.stone_dispersion = Convert.ToInt32(Product_Stone_Dispersion.Text);
                 stone.stone_specific_gravity = Convert.ToInt32(Product_Stone_SpecificGravity.Text);
                 stone.stone_density = Convert.ToInt32(Product_Stone_Density.Text);
