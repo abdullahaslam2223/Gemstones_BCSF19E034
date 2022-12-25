@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -116,7 +117,7 @@ namespace Gemstones_BCSF19E034
 
         protected void Add_Product_Btn_Click(object sender, EventArgs e)
         {
-            //Product_Stone_Image.SaveAs(MapPath("/assets/images/products/" + Product_Stone_Image.FileName));
+            Product_Stone_Image.SaveAs(MapPath("/assets/images/products/" + Product_Stone_Image.FileName));
             using (Gemstones_BCSF19E034Entities db = new Gemstones_BCSF19E034Entities())
             {
                 tbl_products_stone stone = null;
@@ -133,17 +134,17 @@ namespace Gemstones_BCSF19E034
                 stone.stone_name = Product_Stone_Name.Text;
                 stone.stone_price = Convert.ToInt32(Product_Stone_Price.Text);
                 stone.stone_description = Product_Stone_Description.Text;
-                stone.stone_image_url = Product_Stone_Image.FileName;
+                stone.stone_image_url = (Configurations.ImagePath + Product_Stone_Image.FileName);
                 stone.stone_category_id = Product_Stone_Category.SelectedIndex == 0 ? 1 : Product_Stone_Category.SelectedIndex;
                 stone.stone_color_id = Product_Stone_Color.SelectedIndex == 0 ? 1 : Product_Stone_Color.SelectedIndex;
-                stone.stone_weight = Convert.ToInt32(Product_Stone_Weight.Text);
-                stone.stone_hardness = Convert.ToInt32(Product_Stone_Hardness.Text);
+                stone.stone_weight = Product_Stone_Weight.Text == null ? Convert.ToInt32(Product_Stone_Weight.Text) : 0;
+                stone.stone_hardness = Product_Stone_Hardness.Text == null ? Convert.ToInt32(Product_Stone_Hardness.Text) : 0;
                 stone.stone_shape_id = Product_Stone_Shape.SelectedIndex == 0 ? 1 : Product_Stone_Shape.SelectedIndex;
                 stone.stone_origin = Product_Stone_Origin.Text;
                 stone.stone_size_id = Product_Stone_Size.SelectedIndex == 0 ? 1 : Product_Stone_Size.SelectedIndex;
-                stone.stone_dispersion = Convert.ToInt32(Product_Stone_Dispersion.Text);
-                stone.stone_specific_gravity = Convert.ToInt32(Product_Stone_SpecificGravity.Text);
-                stone.stone_density = Convert.ToInt32(Product_Stone_Density.Text);
+                stone.stone_dispersion = Product_Stone_Dispersion.Text == null ? Convert.ToInt32(Product_Stone_Dispersion.Text) : 0;
+                stone.stone_specific_gravity = Product_Stone_SpecificGravity.Text == null ? Convert.ToInt32(Product_Stone_SpecificGravity.Text) : 0;
+                stone.stone_density = Product_Stone_Density.Text == null ? Convert.ToInt32(Product_Stone_Density.Text) : 0;
 
                 if (Request.QueryString["id"] == null)
                 {

@@ -51,6 +51,6 @@ namespace Gemstones_BCSF19E034
 
     public class Configurations
     {
-        public static string ImagePath = "/assets/images/products/";
+        public static string ImagePath = "~/assets/images/products/";
     }
 }
