@@ -83,5 +83,41 @@ namespace Gemstones_BCSF19E034
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GS_Get_Products_Result>("GS_Get_Products");
         }
+    
+        public virtual int GS_Delete_Product_Category(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GS_Delete_Product_Category", idParameter);
+        }
+    
+        public virtual int GS_Delete_Product_Color(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GS_Delete_Product_Color", idParameter);
+        }
+    
+        public virtual int GS_Delete_Product_Shape(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GS_Delete_Product_Shape", idParameter);
+        }
+    
+        public virtual int GS_Delete_Product_Size(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GS_Delete_Product_Size", idParameter);
+        }
     }
 }

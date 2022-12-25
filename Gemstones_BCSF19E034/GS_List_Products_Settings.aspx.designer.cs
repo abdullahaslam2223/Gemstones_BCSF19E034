@@ -15,6 +15,15 @@ namespace Gemstones_BCSF19E034
     {
 
         /// <summary>
+        /// Add_Category_Btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton Add_Category_Btn;
+
+        /// <summary>
         /// GV_Categories control.
         /// </summary>
         /// <remarks>
@@ -22,6 +31,24 @@ namespace Gemstones_BCSF19E034
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GV_Categories;
+
+        /// <summary>
+        /// GV_Categories_Responses control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label GV_Categories_Responses;
+
+        /// <summary>
+        /// Add_Color_Btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton Add_Color_Btn;
 
         /// <summary>
         /// GV_Colors control.
@@ -33,6 +60,24 @@ namespace Gemstones_BCSF19E034
         protected global::System.Web.UI.WebControls.GridView GV_Colors;
 
         /// <summary>
+        /// GV_Colors_Responses control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label GV_Colors_Responses;
+
+        /// <summary>
+        /// Add_Shape_Btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton Add_Shape_Btn;
+
+        /// <summary>
         /// GV_Shapes control.
         /// </summary>
         /// <remarks>
@@ -40,6 +85,24 @@ namespace Gemstones_BCSF19E034
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GV_Shapes;
+
+        /// <summary>
+        /// GV_Shapes_Responses control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label GV_Shapes_Responses;
+
+        /// <summary>
+        /// Add_Size_Btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton Add_Size_Btn;
 
         /// <summary>
         /// GV_Sizes control.
@@ -51,57 +114,201 @@ namespace Gemstones_BCSF19E034
         protected global::System.Web.UI.WebControls.GridView GV_Sizes;
 
         /// <summary>
-        /// Add_Product_Category control.
+        /// GV_Sizes_Responses control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Add_Product_Category;
+        protected global::System.Web.UI.WebControls.Label GV_Sizes_Responses;
 
         /// <summary>
-        /// btnOpenPopUp control.
+        /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnOpenPopUp;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
 
         /// <summary>
-        /// lblHidden control.
+        /// Category_Popup_Extender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHidden;
+        protected global::AjaxControlToolkit.ModalPopupExtender Category_Popup_Extender;
 
         /// <summary>
-        /// mpePopUp control.
+        /// Category_Panel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.ModalPopupExtender mpePopUp;
+        protected global::System.Web.UI.WebControls.Panel Category_Panel;
 
         /// <summary>
-        /// btnOk control.
+        /// Category_Close control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnOk;
+        protected global::System.Web.UI.WebControls.Button Category_Close;
 
         /// <summary>
-        /// btnCancel control.
+        /// Add_New_Product_Category control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancel;
+        protected global::System.Web.UI.WebControls.TextBox Add_New_Product_Category;
+
+        /// <summary>
+        /// Add_New_Product_Category_Btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Add_New_Product_Category_Btn;
+
+        /// <summary>
+        /// Color_Popup_Extender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ModalPopupExtender Color_Popup_Extender;
+
+        /// <summary>
+        /// Color_Panel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Color_Panel;
+
+        /// <summary>
+        /// Color_Close control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Color_Close;
+
+        /// <summary>
+        /// Add_New_Product_Color control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Add_New_Product_Color;
+
+        /// <summary>
+        /// Add_New_Product_Color_Btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Add_New_Product_Color_Btn;
+
+        /// <summary>
+        /// Shape_Popup_Extender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ModalPopupExtender Shape_Popup_Extender;
+
+        /// <summary>
+        /// Shape_Panel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Shape_Panel;
+
+        /// <summary>
+        /// Shape_Close control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Shape_Close;
+
+        /// <summary>
+        /// Add_New_Product_Shape control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Add_New_Product_Shape;
+
+        /// <summary>
+        /// Add_New_Product_Shape_Btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Add_New_Product_Shape_Btn;
+
+        /// <summary>
+        /// Size_Popup_Extender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ModalPopupExtender Size_Popup_Extender;
+
+        /// <summary>
+        /// Size_Panel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Size_Panel;
+
+        /// <summary>
+        /// Size_Close control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Size_Close;
+
+        /// <summary>
+        /// Add_New_Product_Size control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Add_New_Product_Size;
+
+        /// <summary>
+        /// Add_New_Product_Size_Btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Add_New_Product_Size_Btn;
     }
 }
