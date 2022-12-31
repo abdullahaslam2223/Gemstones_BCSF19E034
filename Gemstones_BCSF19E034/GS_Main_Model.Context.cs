@@ -56,15 +56,6 @@ namespace Gemstones_BCSF19E034
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GS_Delete_Admin", idParameter);
         }
     
-        public virtual int GS_Delete_Category(Nullable<int> id)
-        {
-            var idParameter = id.HasValue ?
-                new ObjectParameter("id", id) :
-                new ObjectParameter("id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GS_Delete_Category", idParameter);
-        }
-    
         public virtual int GS_Delete_Product(Nullable<int> id)
         {
             var idParameter = id.HasValue ?
@@ -72,16 +63,6 @@ namespace Gemstones_BCSF19E034
                 new ObjectParameter("id", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GS_Delete_Product", idParameter);
-        }
-    
-        public virtual ObjectResult<GS_Get_Admins_Result> GS_Get_Admins()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GS_Get_Admins_Result>("GS_Get_Admins");
-        }
-    
-        public virtual ObjectResult<GS_Get_Products_Result> GS_Get_Products()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GS_Get_Products_Result>("GS_Get_Products");
         }
     
         public virtual int GS_Delete_Product_Category(Nullable<int> id)
@@ -118,6 +99,16 @@ namespace Gemstones_BCSF19E034
                 new ObjectParameter("id", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GS_Delete_Product_Size", idParameter);
+        }
+    
+        public virtual ObjectResult<GS_Get_Admins_Result> GS_Get_Admins()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GS_Get_Admins_Result>("GS_Get_Admins");
+        }
+    
+        public virtual ObjectResult<GS_Get_Products_Result> GS_Get_Products()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GS_Get_Products_Result>("GS_Get_Products");
         }
     }
 }
