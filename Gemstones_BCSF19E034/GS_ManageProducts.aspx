@@ -144,6 +144,9 @@
                                             </div>
                                         </div>
 
+                                        <div class="mb-1">
+                                            <asp:Image Width="250px" ID="Product_Stone_Image_Display" runat="server" />
+                                        </div>
 
                                         <div class="mb-3">
                                             <div class="form-outline form-white">

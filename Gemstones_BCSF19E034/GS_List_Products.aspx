@@ -10,7 +10,7 @@
             <Columns>
                 <asp:TemplateField HeaderText="Image">
                     <ItemTemplate>
-                        <asp:Image ImageUrl='<%#Eval("stone_image_url")%>' Width="80px" runat="server" />
+                        <asp:Image ImageUrl='<%# "~/assets/images/products/" + Eval("stone_image_url")%>' Width="80px" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:BoundField DataField="stone_name" HeaderText="Stone Name" />
