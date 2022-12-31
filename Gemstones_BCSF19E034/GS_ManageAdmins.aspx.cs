@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Security.Policy;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -25,13 +26,17 @@ namespace Gemstones_BCSF19E034
 					Admin_Email.Text = admin.user_email;
 					Admin_Password.Text = Encryption.DecodeFrom64(admin.user_password);
 					Admin_Conf_Password.Text = Encryption.DecodeFrom64(admin.user_password);
-				}
+                    Admin_Image_Display.ImageUrl = Configurations.AdminImagePath + admin.image_name;
+                }
 			}
         }
 
         protected void btn_Admin_Click(object sender, EventArgs e)
 		{
-            Admin_Image.SaveAs(MapPath("/assets/images/admins/" + Admin_Image.FileName));
+            if (Admin_Image.HasFile)
+            {
+				Admin_Image.SaveAs(MapPath("/assets/images/admins/" + Admin_Image.FileName));
+            }
             using (Gemstones_BCSF19E034Entities db = new Gemstones_BCSF19E034Entities())
 			{
 				if (Request.QueryString["id"] != null)
@@ -50,7 +55,14 @@ namespace Gemstones_BCSF19E034
 					admin.user_email = Admin_Email.Text;
                     admin.user_password = Encryption.EncodePasswordToBase64(Admin_Password.Text);
                     admin.status = true;
-                    admin.image_name = Admin_Image.FileName;
+                    if (Admin_Image.HasFile)
+                    {
+                        admin.image_name = Admin_Image.FileName;
+                    }
+                    else
+                    {
+                        admin.image_name = admin.image_name;
+                    }
                     db.SaveChanges();
                     Admin_Success.InnerHtml = "<div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\">Admin edited successfully</div>";
                 }
@@ -70,7 +82,7 @@ namespace Gemstones_BCSF19E034
                     admin.user_email = Admin_Email.Text;
                     admin.user_password = Encryption.EncodePasswordToBase64(Admin_Password.Text);
                     admin.status = true;
-                    admin.image_name = Admin_Image.FileName;
+                    admin.image_name = Admin_Image.HasFile ? Admin_Image.FileName : null;
                     db.tbl_admin_users.Add(admin);
                     db.SaveChanges();
                     Admin_Success.InnerHtml = "<div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\">Admin added successfully</div>";

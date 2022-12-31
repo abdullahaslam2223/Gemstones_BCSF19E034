@@ -46,15 +46,15 @@
                             <asp:CompareValidator CssClass="text-danger" ID="Password_Confirmation" ControlToValidate="Admin_Password" ControlToCompare="Admin_Conf_Password" Text="Passwords should match" runat="server"></asp:CompareValidator>
                         </div>
 
-                        <%--<div class="mb-1">
+                        <div class="mb-1">
                             <asp:Image Width="250px" ID="Admin_Image_Display" runat="server" />
-                        </div>--%>
+                        </div>
 
                         <div class="mb-3">
                             <div class="form-outline form-white">
                                 <asp:FileUpload ID="Admin_Image" runat="server" />
                                 <asp:Label runat="server" CssClass="form-label mb-0" AssociatedControlID="Admin_Image" Text="Upload admin image"></asp:Label>
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="Admin_Image" Text="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                                <%--<asp:RequiredFieldValidator runat="server" ControlToValidate="Admin_Image" Text="*" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                             </div>
                         </div>
 
