@@ -135,7 +135,7 @@ namespace Gemstones_BCSF19E034
                 stone.stone_name = Product_Stone_Name.Text;
                 stone.stone_price = Convert.ToInt32(Product_Stone_Price.Text);
                 stone.stone_description = Product_Stone_Description.Text;
-                stone.stone_image_url = (Product_Stone_Image.FileName);
+                stone.stone_image_url = Product_Stone_Image.FileName;
                 stone.stone_category_id = Product_Stone_Category.SelectedIndex == 0 ? 1 : Product_Stone_Category.SelectedIndex;
                 stone.stone_color_id = Product_Stone_Color.SelectedIndex == 0 ? 1 : Product_Stone_Color.SelectedIndex;
                 stone.stone_weight = Product_Stone_Weight.Text == null ? Convert.ToInt32(Product_Stone_Weight.Text) : 0;

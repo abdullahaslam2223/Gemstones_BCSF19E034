@@ -31,7 +31,8 @@ namespace Gemstones_BCSF19E034
 
         protected void btn_Admin_Click(object sender, EventArgs e)
 		{
-			using (Gemstones_BCSF19E034Entities db = new Gemstones_BCSF19E034Entities())
+            Admin_Image.SaveAs(MapPath("/assets/images/admins/" + Admin_Image.FileName));
+            using (Gemstones_BCSF19E034Entities db = new Gemstones_BCSF19E034Entities())
 			{
 				if (Request.QueryString["id"] != null)
 				{
@@ -49,6 +50,7 @@ namespace Gemstones_BCSF19E034
 					admin.user_email = Admin_Email.Text;
                     admin.user_password = Encryption.EncodePasswordToBase64(Admin_Password.Text);
                     admin.status = true;
+                    admin.image_name = Admin_Image.FileName;
                     db.SaveChanges();
                     Admin_Success.InnerHtml = "<div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\">Admin edited successfully</div>";
                 }
@@ -68,6 +70,7 @@ namespace Gemstones_BCSF19E034
                     admin.user_email = Admin_Email.Text;
                     admin.user_password = Encryption.EncodePasswordToBase64(Admin_Password.Text);
                     admin.status = true;
+                    admin.image_name = Admin_Image.FileName;
                     db.tbl_admin_users.Add(admin);
                     db.SaveChanges();
                     Admin_Success.InnerHtml = "<div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\">Admin added successfully</div>";

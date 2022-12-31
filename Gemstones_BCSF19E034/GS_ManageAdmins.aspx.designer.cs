@@ -87,6 +87,15 @@ namespace Gemstones_BCSF19E034
         protected global::System.Web.UI.WebControls.CompareValidator Password_Confirmation;
 
         /// <summary>
+        /// Admin_Image control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload Admin_Image;
+
+        /// <summary>
         /// EmailExist control.
         /// </summary>
         /// <remarks>

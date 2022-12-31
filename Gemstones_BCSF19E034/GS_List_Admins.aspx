@@ -10,6 +10,11 @@
         </div>
         <asp:GridView ID="GV_Admins" CssClass="table table-bordered" runat="server" OnRowCommand="GV_Admins_RowCommand" OnRowEditing="GV_Admins_RowEditing" OnRowDeleting="GV_Admins_RowDeleting" AutoGenerateColumns="false">
             <Columns>
+                 <asp:TemplateField HeaderText="Image">
+                    <ItemTemplate>
+                        <asp:Image ImageUrl='<%# "~/assets/images/admins/" + Eval("image_name")%>' runat="server" Width="80px" />   
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:BoundField DataField="user_firstName" HeaderText="First Name" />
                 <asp:BoundField DataField="user_lastName" HeaderText="Last Name" />
                 <asp:BoundField DataField="user_email" HeaderText="Email" />

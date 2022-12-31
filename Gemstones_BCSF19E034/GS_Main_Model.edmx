@@ -15,6 +15,7 @@
           <Property Name="user_email" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="user_password" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="status" Type="bit" Nullable="false" />
+          <Property Name="image_name" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="tbl_products_stone">
           <Key>
@@ -174,6 +175,7 @@
           <Property Name="user_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="user_password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="status" Type="Boolean" Nullable="false" />
+          <Property Name="image_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="tbl_products_stone">
           <Key>
@@ -318,16 +320,16 @@
           <FunctionImport Name="GS_Get_Admins" ReturnType="Collection(Gemstones_BCSF19E034Model.GS_Get_Admins_Result)" />
           <FunctionImport Name="GS_Get_Products" ReturnType="Collection(Gemstones_BCSF19E034Model.GS_Get_Products_Result)" />
           <FunctionImport Name="GS_Delete_Product_Category">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GS_Delete_Product_Color">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GS_Delete_Product_Shape">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GS_Delete_Product_Size">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GS_Admin_DoLogin_Result">
@@ -372,6 +374,7 @@
           <EntitySetMapping Name="tbl_admin_users">
             <EntityTypeMapping TypeName="Gemstones_BCSF19E034Model.tbl_admin_users">
               <MappingFragment StoreEntitySet="tbl_admin_users">
+                <ScalarProperty Name="image_name" ColumnName="image_name" />
                 <ScalarProperty Name="user_id" ColumnName="user_id" />
                 <ScalarProperty Name="user_firstName" ColumnName="user_firstName" />
                 <ScalarProperty Name="user_lastName" ColumnName="user_lastName" />
