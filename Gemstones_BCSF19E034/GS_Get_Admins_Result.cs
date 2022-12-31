@@ -20,5 +20,6 @@ namespace Gemstones_BCSF19E034
         public string user_password { get; set; }
         public bool status { get; set; }
         public string image_name { get; set; }
+        public bool super { get; set; }
     }
 }
