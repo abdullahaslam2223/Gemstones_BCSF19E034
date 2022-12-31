@@ -76,8 +76,7 @@
                         <a class="nav-link" href="GS_Logout.aspx">Logout</a>
                     </li>
                     <li class="nav-item mt-2">
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp" class="rounded-circle"
-                            height="30" alt="Avatar" loading="lazy" />
+                        <asp:Image runat="server" ID="user_profile_image" Height="30px" AlternateText="Profile Image" /> <%--rounded-circle => Class to round image--%>
                     </li>
                 </ul>
             </div>

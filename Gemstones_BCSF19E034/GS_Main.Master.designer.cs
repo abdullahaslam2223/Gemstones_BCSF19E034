@@ -33,6 +33,15 @@ namespace Gemstones_BCSF19E034
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl User_Email_Info;
 
         /// <summary>
+        /// user_profile_image control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image user_profile_image;
+
+        /// <summary>
         /// AdminBody control.
         /// </summary>
         /// <remarks>

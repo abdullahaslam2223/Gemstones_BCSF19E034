@@ -152,7 +152,7 @@
                                             <div class="form-outline form-white">
                                                 <asp:FileUpload ID="Product_Stone_Image" runat="server" />
                                                 <asp:Label runat="server" CssClass="form-label mb-0" AssociatedControlID="Product_Stone_Image" Text="Upload stone image"></asp:Label>
-                                                <asp:RequiredFieldValidator runat="server" ControlToValidate="Product_Stone_Image" Text="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                <%--<asp:RequiredFieldValidator runat="server" ControlToValidate="Product_Stone_Image" Text="*" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                                             </div>
                                         </div>
 

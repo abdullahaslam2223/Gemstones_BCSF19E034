@@ -118,7 +118,10 @@ namespace Gemstones_BCSF19E034
 
         protected void Add_Product_Btn_Click(object sender, EventArgs e)
         {
-            Product_Stone_Image.SaveAs(MapPath("/assets/images/products/" + Product_Stone_Image.FileName));
+            if(Product_Stone_Image.HasFile)
+            {
+                Product_Stone_Image.SaveAs(MapPath("/assets/images/products/" + Product_Stone_Image.FileName));
+            }
             using (Gemstones_BCSF19E034Entities db = new Gemstones_BCSF19E034Entities())
             {
                 tbl_products_stone stone = null;
@@ -126,16 +129,24 @@ namespace Gemstones_BCSF19E034
                 {
                     int product_id = Convert.ToInt32(Request.QueryString["id"]);
                     stone = db.tbl_products_stone.FirstOrDefault(v => v.stone_id == product_id);
+                    if (!Product_Stone_Image.HasFile)
+                    {
+                        stone.stone_image_url = stone.stone_image_url;
+                    }
+                    else
+                    {
+                        stone.stone_image_url = Product_Stone_Image.FileName;
+                    }
                 }
                 else
                 {
                     stone = new tbl_products_stone();
+                    stone.stone_image_url = Product_Stone_Image.HasFile ? Product_Stone_Image.FileName : null;
                 }
 
                 stone.stone_name = Product_Stone_Name.Text;
                 stone.stone_price = Convert.ToInt32(Product_Stone_Price.Text);
                 stone.stone_description = Product_Stone_Description.Text;
-                stone.stone_image_url = Product_Stone_Image.FileName;
                 stone.stone_category_id = Product_Stone_Category.SelectedIndex == 0 ? 1 : Product_Stone_Category.SelectedIndex;
                 stone.stone_color_id = Product_Stone_Color.SelectedIndex == 0 ? 1 : Product_Stone_Color.SelectedIndex;
                 stone.stone_weight = Product_Stone_Weight.Text == null ? Convert.ToInt32(Product_Stone_Weight.Text) : 0;

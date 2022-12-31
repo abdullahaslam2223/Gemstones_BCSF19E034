@@ -16,6 +16,15 @@ namespace Gemstones_BCSF19E034
                 Response.Redirect("GS_LoginForm.aspx");
             }
             User_Email_Info.InnerText = "Signed In as " + Session["user_email"];
+            using (Gemstones_BCSF19E034Entities db = new Gemstones_BCSF19E034Entities())
+            {
+                int user_id = Convert.ToInt32(((string)Session["user_id"]).Trim());
+                var image_url = (from i in db.tbl_admin_users where i.user_id == user_id select i.image_name).ToList();
+                if(image_url.Count > 0)
+                {
+                    user_profile_image.ImageUrl = Configurations.AdminImagePath + image_url[0];
+                }
+            }
         }
     }
 
@@ -52,5 +61,6 @@ namespace Gemstones_BCSF19E034
     public class Configurations
     {
         public static string ImagePath = "~/assets/images/products/";
+        public static string AdminImagePath = "~/assets/images/admins/";
     }
 }
