@@ -18,7 +18,7 @@ namespace Gemstones_BCSF19E034
             User_Email_Info.InnerText = "Signed In as " + Session["user_email"];
             using (Gemstones_BCSF19E034Entities db = new Gemstones_BCSF19E034Entities())
             {
-                int user_id = Convert.ToInt32(((string)Session["user_id"]).Trim());
+                int user_id = Convert.ToInt32(Session["user_id"]);
                 var image_url = (from i in db.tbl_admin_users where i.user_id == user_id select i.image_name).ToList();
                 if(image_url.Count > 0)
                 {

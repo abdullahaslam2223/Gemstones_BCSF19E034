@@ -20,8 +20,8 @@
                 <asp:BoundField DataField="user_email" HeaderText="Email" />
                 <asp:TemplateField HeaderText="Actions">
                     <ItemTemplate>
-                        <asp:Button CssClass="btn btn-warning" ID="Edit_Admin_Btn" CommandName="edit" CommandArgument='<%# Eval("user_id") %>' Text="Edit" runat="server" />
-                        <asp:Button CssClass="btn btn-danger" Enabled='<%# Eval("super") %>' ID="Delete_Admin_Btn" CommandName="delete" CommandArgument='<%# Eval("user_id") %>' OnClientClick="return confirm('Are you sure?');" Text="Delete" runat="server" />
+                        <asp:Button CssClass="btn btn-warning" Enabled='<%# Eval("super").ToString() == "True" ? false : true %>' ID="Edit_Admin_Btn" CommandName="edit" CommandArgument='<%# Eval("user_id") %>' Text="Edit" runat="server" />
+                        <asp:Button CssClass="btn btn-danger" Enabled='<%# Eval("super").ToString() == "True" ? false : true %>' ID="Delete_Admin_Btn" CommandName="delete" CommandArgument='<%# Eval("user_id") %>' OnClientClick="return confirm('Are you sure?');" Text="Delete" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
