@@ -4,6 +4,20 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="AdminHead" runat="server">
+    <script>
+        //$(document).ready(function () {
+        //    $('#GV_Categories').DataTable();
+        //});
+        //$(document).ready(function () {
+        //    $('#GV_Colors').DataTable();
+        //});
+        //$(document).ready(function () {
+        //    $('#GV_Shapes').DataTable();
+        //});
+        //$(document).ready(function () {
+        //    $('#GV_Sizes').DataTable();
+        //});
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="AdminBody" runat="server">
 
@@ -15,7 +29,7 @@
                     <button type="button" id="Add_Category_Btn" class="btn btn-outline-success btn-sm mb-1" runat="server">
                         Add Category
                     </button>
-                    <asp:GridView ID="GV_Categories" CssClass="table table-bordered" OnRowCommand="GV_Categories_RowCommand" OnRowDeleting="GV_Categories_RowDeleting" AutoGenerateColumns="false" runat="server">
+                    <asp:GridView ID="GV_Categories" ClientIDMode="Static" CssClass="table table-bordered" OnRowCommand="GV_Categories_RowCommand" OnRowDeleting="GV_Categories_RowDeleting" AutoGenerateColumns="false" runat="server">
                         <Columns>
                             <asp:BoundField DataField="category_name" HeaderText="Name" />
                             <asp:TemplateField HeaderText="Actions">
@@ -34,7 +48,7 @@
                     <button type="button" id="Add_Color_Btn" class="btn btn-outline-success btn-sm mb-1" runat="server">
                         Add Color
                     </button>
-                    <asp:GridView ID="GV_Colors" CssClass="table table-bordered" OnRowCommand="GV_Colors_RowCommand" OnRowDeleting="GV_Colors_RowDeleting" AutoGenerateColumns="false" runat="server">
+                    <asp:GridView ID="GV_Colors" ClientIDMode="Static" CssClass="table table-bordered" OnRowCommand="GV_Colors_RowCommand" OnRowDeleting="GV_Colors_RowDeleting" AutoGenerateColumns="false" runat="server">
                         <Columns>
                             <asp:BoundField DataField="color_name" HeaderText="Name" />
                             <asp:TemplateField HeaderText="Actions">
@@ -53,7 +67,7 @@
                     <button type="button" id="Add_Shape_Btn" class="btn btn-outline-success btn-sm mb-1" runat="server">
                         Add Shape
                     </button>
-                    <asp:GridView ID="GV_Shapes" CssClass="table table-bordered" OnRowCommand="GV_Shapes_RowCommand" OnRowDeleting="GV_Shapes_RowDeleting" AutoGenerateColumns="false" runat="server">
+                    <asp:GridView ID="GV_Shapes" ClientIDMode="Static" CssClass="table table-bordered" OnRowCommand="GV_Shapes_RowCommand" OnRowDeleting="GV_Shapes_RowDeleting" AutoGenerateColumns="false" runat="server">
                         <Columns>
                             <asp:BoundField DataField="shape_name" HeaderText="Name" />
                             <asp:TemplateField HeaderText="Actions">
@@ -72,7 +86,7 @@
                     <button type="button" id="Add_Size_Btn" class="btn btn-outline-success btn-sm mb-1" runat="server">
                         Add Size
                     </button>
-                    <asp:GridView ID="GV_Sizes" CssClass="table table-bordered" OnRowCommand="GV_Sizes_RowCommand" OnRowDeleting="GV_Sizes_RowDeleting" AutoGenerateColumns="false" runat="server">
+                    <asp:GridView ID="GV_Sizes" ClientIDMode="Static" CssClass="table table-bordered" OnRowCommand="GV_Sizes_RowCommand" OnRowDeleting="GV_Sizes_RowDeleting" AutoGenerateColumns="false" runat="server">
                         <Columns>
                             <asp:BoundField DataField="size_name" HeaderText="Name" />
                             <asp:TemplateField HeaderText="Actions">

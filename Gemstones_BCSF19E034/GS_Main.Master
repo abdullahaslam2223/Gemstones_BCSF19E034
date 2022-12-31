@@ -22,6 +22,7 @@
             }
         };
     </script>
+    <script src="assets/js/jquery.js"></script>
     <asp:ContentPlaceHolder ID="AdminHead" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -30,7 +31,8 @@
     <!--Main Navigation-->
     <header>
         <!-- Sidebar -->
-        <nav id="sidebarMenu" class="d-lg-block sidebar bg-white mt-3 collapse"> <!-- Collapse hide the navbar -->
+        <nav id="sidebarMenu" class="d-lg-block sidebar bg-white mt-3 collapse">
+            <!-- Collapse hide the navbar -->
             <div class="position-sticky">
                 <div class="list-group list-group-flush mx-3 mt-4 menu-item">
                     <a href="GS_HomePage.aspx" class="list-group-item list-group-item-action py-2 ripple">
@@ -77,7 +79,8 @@
                         <a class="nav-link" href="GS_Logout.aspx">Logout</a>
                     </li>
                     <li class="nav-item mt-2">
-                        <asp:Image runat="server" ID="user_profile_image" Height="30px" AlternateText="Profile Image" /> <%--rounded-circle => Class to round image--%>
+                        <asp:Image runat="server" ID="user_profile_image" Height="30px" AlternateText="Profile Image" />
+                        <%--rounded-circle => Class to round image--%>
                     </li>
                 </ul>
             </div>
@@ -96,7 +99,6 @@
     </main>
     <!--Main layout-->
     <script src="assets/js/bootstrap.js"></script>
-    <script src="assets/js/jquery.js"></script>
     <script src="assets/js/datatables.js"></script>
 </body>
 </html>

@@ -12,10 +12,23 @@ namespace Gemstones_BCSF19E034
         protected void Page_Load(object sender, EventArgs e)
         {
             this.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
+            MakingGVCompatibleWithDataTables();
             if (IsPostBack) return;
             FillAllData();
         }
 
+        protected void MakingGVCompatibleWithDataTables()
+        {
+
+            GV_Colors.UseAccessibleHeader = true;
+            GV_Colors.HeaderRow.TableSection = TableRowSection.TableHeader;
+
+            GV_Shapes.UseAccessibleHeader = true;
+            GV_Shapes.HeaderRow.TableSection = TableRowSection.TableHeader;
+
+            GV_Sizes.UseAccessibleHeader = true;
+            GV_Sizes.HeaderRow.TableSection = TableRowSection.TableHeader;
+        }
         protected void FillAllData()
         {
             FillCategories();

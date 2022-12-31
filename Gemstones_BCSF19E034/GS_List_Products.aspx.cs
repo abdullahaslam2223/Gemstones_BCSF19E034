@@ -13,6 +13,8 @@ namespace Gemstones_BCSF19E034
         {
             if (IsPostBack) return;
             FillProducts();
+            GV_Products.UseAccessibleHeader = true;
+            GV_Products.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
         protected void FillProducts()
         {

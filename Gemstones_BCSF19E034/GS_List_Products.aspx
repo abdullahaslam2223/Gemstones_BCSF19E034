@@ -1,12 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GS_Main.Master" AutoEventWireup="true" CodeBehind="GS_List_Products.aspx.cs" Inherits="Gemstones_BCSF19E034.GS_List_Products" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="AdminHead" runat="server">
+    <script>
+        $(document).ready(function () {
+            $('#GV_Products').DataTable();
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="AdminBody" runat="server">
     <form runat="server">
         <div style="background-color: #edf0ee;" class="px-3 py-3 mb-3 rounded">
             <asp:HyperLink NavigateUrl="~/GS_ManageProducts.aspx" ID="Add_New_Product_Lnk" CssClass="btn btn-outline-success" Text="Add Product" runat="server"></asp:HyperLink>
         </div>
-        <asp:GridView ID="GV_Products" CssClass="table table-bordered" OnRowCommand="GV_Products_RowCommand" OnRowEditing="GV_Products_RowEditing" OnRowDeleting="GV_Products_RowDeleting" runat="server" AutoGenerateColumns="false">
+        <asp:GridView ID="GV_Products" ClientIDMode="Static" CssClass="table table-bordered" OnRowCommand="GV_Products_RowCommand" OnRowEditing="GV_Products_RowEditing" OnRowDeleting="GV_Products_RowDeleting" runat="server" AutoGenerateColumns="false">
             <Columns>
                 <asp:TemplateField HeaderText="Image">
                     <ItemTemplate>
