@@ -79,15 +79,15 @@ namespace Gemstones_BCSF19E034
             }
         }
 
-        protected void SuccessMessage(Label ID)
+        protected void SuccessMessage(Label ID, string Message)
         {
-            ID.Text = "Deleted Successfully!";
+            ID.Text = Message;
             ID.ForeColor = System.Drawing.Color.Green;
         }
 
-        protected void ErrorMessage(Label ID)
+        protected void ErrorMessage(Label ID, string Message)
         {
-            ID.Text = "Please first delete those products which are using this category!";
+            ID.Text = Message;
             ID.ForeColor = System.Drawing.Color.Red;
         }
 
@@ -104,11 +104,11 @@ namespace Gemstones_BCSF19E034
                 var products = (from p in db.tbl_products_stone where p.stone_category_id == category_id select p).ToList();
                 if(products.Count > 0)
                 {
-                    ErrorMessage(GV_Categories_Responses);
+                    ErrorMessage(GV_Categories_Responses, "Please first delete those products which are using this category!");
                     return;
                 }
                 db.GS_Delete_Product_Category(category_id);
-                SuccessMessage(GV_Categories_Responses);
+                SuccessMessage(GV_Categories_Responses, "Deleted Successfully!");
             }
             FillCategories();
         }
@@ -126,11 +126,11 @@ namespace Gemstones_BCSF19E034
                 var products = (from p in db.tbl_products_stone where p.stone_color_id == color_id select p).ToList();
                 if (products.Count > 0)
                 {
-                    ErrorMessage(GV_Colors_Responses);
+                    ErrorMessage(GV_Colors_Responses, "Please first delete those products which are using this color!");
                     return;
                 }
                 db.GS_Delete_Product_Color(color_id);
-                SuccessMessage(GV_Colors_Responses);
+                SuccessMessage(GV_Colors_Responses, "Deleted Successfully!");
             }
             FillColors();
         }
@@ -148,11 +148,11 @@ namespace Gemstones_BCSF19E034
                 var products = (from p in db.tbl_products_stone where p.stone_shape_id == shape_id select p).ToList();
                 if (products.Count > 0)
                 {
-                    ErrorMessage(GV_Shapes_Responses);
+                    ErrorMessage(GV_Shapes_Responses, "Please first delete those products which are using this shape!");
                     return;
                 }
                 db.GS_Delete_Product_Shape(shape_id);
-                SuccessMessage(GV_Shapes_Responses);
+                SuccessMessage(GV_Shapes_Responses, "Deleted Successfully!");
             }
             FillShapes();
         }
@@ -170,17 +170,22 @@ namespace Gemstones_BCSF19E034
                 var products = (from p in db.tbl_products_stone where p.stone_size_id == size_id select p).ToList();
                 if (products.Count > 0)
                 {
-                    ErrorMessage(GV_Sizes_Responses);
+                    ErrorMessage(GV_Sizes_Responses, "Please first delete those products which are using this size!");
                     return;
                 }
                 db.GS_Delete_Product_Size(size_id);
-                SuccessMessage(GV_Sizes_Responses);
+                SuccessMessage(GV_Sizes_Responses, "Deleted Successfully!");
             }
             FillSizes();
         }
 
         protected void Add_New_Product_Category_Btn_Click(object sender, EventArgs e)
         {
+            if(string.IsNullOrEmpty(Add_New_Product_Category.Text))
+            {
+                ErrorMessage(GV_Categories_Responses, "Category name cannot be empty!");
+                return;
+            }
             using(Gemstones_BCSF19E034Entities db = new Gemstones_BCSF19E034Entities())
             {
                 tbl_stone_categories tbl = new tbl_stone_categories();
@@ -193,6 +198,11 @@ namespace Gemstones_BCSF19E034
 
         protected void Add_New_Product_Color_Btn_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(Add_New_Product_Color.Text))
+            {
+                ErrorMessage(GV_Colors_Responses, "Color name cannot be empty!");
+                return;
+            }
             using (Gemstones_BCSF19E034Entities db = new Gemstones_BCSF19E034Entities())
             {
                 tbl_stone_colors tbl = new tbl_stone_colors();
@@ -205,6 +215,11 @@ namespace Gemstones_BCSF19E034
 
         protected void Add_New_Product_Shape_Btn_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(Add_New_Product_Shape.Text))
+            {
+                ErrorMessage(GV_Shapes_Responses, "Shape name cannot be empty!");
+                return;
+            }
             using (Gemstones_BCSF19E034Entities db = new Gemstones_BCSF19E034Entities())
             {
                 tbl_stone_shapes tbl = new tbl_stone_shapes();
@@ -217,6 +232,11 @@ namespace Gemstones_BCSF19E034
 
         protected void Add_New_Product_Size_Btn_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(Add_New_Product_Size.Text))
+            {
+                ErrorMessage(GV_Sizes_Responses, "Size name cannot be empty!");
+                return;
+            }
             using (Gemstones_BCSF19E034Entities db = new Gemstones_BCSF19E034Entities())
             {
                 tbl_stone_sizes tbl = new tbl_stone_sizes();
