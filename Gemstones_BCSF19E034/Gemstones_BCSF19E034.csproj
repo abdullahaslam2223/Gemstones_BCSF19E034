@@ -78,6 +78,7 @@
   <ItemGroup>
     <Content Include="assets\css\adminPanel\custom.css" />
     <Content Include="assets\css\bootstrap.css" />
+    <Content Include="assets\css\datatables.css" />
     <Content Include="assets\css\loginPage\custom.css" />
     <Content Include="assets\css\manageAdmins\custom.css" />
     <Content Include="assets\css\manageProducts\custom.css" />
@@ -87,6 +88,7 @@
     <Content Include="assets\images\logos\logo-white.svg" />
     <Content Include="assets\images\products\test.PNG" />
     <Content Include="assets\js\bootstrap.js" />
+    <Content Include="assets\js\datatables.js" />
     <Content Include="assets\js\jquery.js" />
     <Content Include="assets\js\popper.min.js" />
     <Content Include="GS_List_Admins.aspx" />

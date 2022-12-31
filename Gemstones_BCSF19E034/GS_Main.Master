@@ -9,6 +9,7 @@
     <title>Gemstones</title>
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <link href="assets/css/adminPanel/custom.css" rel="stylesheet" />
+    <link href="assets/css/datatables.css" rel="stylesheet" />
     <script>
         window.onload = (event) => {
             var current = location.pathname.split('/')[1];
@@ -96,5 +97,6 @@
     <!--Main layout-->
     <script src="assets/js/bootstrap.js"></script>
     <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/datatables.js"></script>
 </body>
 </html>
