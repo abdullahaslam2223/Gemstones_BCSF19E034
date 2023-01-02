@@ -13,7 +13,7 @@ namespace Gemstones_BCSF19E034
         {
             if (Session["user_id"] == null)
             {
-                // Response.Redirect("GS_LoginForm.aspx");
+                Response.Redirect("GS_LoginForm.aspx");
             }
         }
     }
