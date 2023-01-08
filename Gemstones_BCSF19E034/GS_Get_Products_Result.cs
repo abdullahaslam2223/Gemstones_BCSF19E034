@@ -15,7 +15,7 @@ namespace Gemstones_BCSF19E034
     {
         public long stone_id { get; set; }
         public string stone_name { get; set; }
-        public int stone_price { get; set; }
+        public decimal stone_price { get; set; }
         public string stone_description { get; set; }
         public string stone_image_url { get; set; }
         public string category_name { get; set; }

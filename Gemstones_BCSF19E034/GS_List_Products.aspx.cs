@@ -32,8 +32,8 @@ namespace Gemstones_BCSF19E034
         {
             using(Gemstones_BCSF19E034Entities db = new Gemstones_BCSF19E034Entities())
             {
-                var products = db.GS_Get_Products();
-                if(products.ToList().Count > 0)
+                var products = db.GS_Get_Products().ToList();
+                if(products.Count > 0)
                 {
                     GV_Products.DataSource = products;
                     GV_Products.DataBind();

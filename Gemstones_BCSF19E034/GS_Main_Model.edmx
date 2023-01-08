@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Gemstones_BCSF19E034Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Gemstones_BCSF19E034Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tbl_admin_users">
           <Key>
             <PropertyRef Name="user_id" />
@@ -163,7 +163,8 @@
             <End Role="tbl_products_stone" EntitySet="tbl_products_stone" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Gemstones_BCSF19E034Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -186,7 +187,7 @@
           </Key>
           <Property Name="stone_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="stone_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="stone_price" Type="Int32" Nullable="false" />
+          <Property Name="stone_price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="stone_description" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="stone_image_url" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="stone_category_id" Type="Int32" />
@@ -199,11 +200,11 @@
           <Property Name="stone_dispersion" Type="Double" />
           <Property Name="stone_specific_gravity" Type="Double" />
           <Property Name="stone_density" Type="Double" />
+          <Property Name="stone_quantity" Type="Int32" />
           <NavigationProperty Name="tbl_stone_categories" Relationship="Self.FK_tbl_products_stone_tbl_stone_categories" FromRole="tbl_products_stone" ToRole="tbl_stone_categories" />
           <NavigationProperty Name="tbl_stone_colors" Relationship="Self.FK_tbl_products_stone_tbl_stone_colors" FromRole="tbl_products_stone" ToRole="tbl_stone_colors" />
           <NavigationProperty Name="tbl_stone_shapes" Relationship="Self.FK_tbl_products_stone_tbl_stone_shapes" FromRole="tbl_products_stone" ToRole="tbl_stone_shapes" />
           <NavigationProperty Name="tbl_stone_sizes" Relationship="Self.FK_tbl_products_stone_tbl_stone_sizes" FromRole="tbl_products_stone" ToRole="tbl_stone_sizes" />
-          <Property Name="stone_quantity" Type="Int32" />
         </EntityType>
         <EntityType Name="tbl_stone_categories">
           <Key>
@@ -313,22 +314,22 @@
             <Parameter Name="password" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="GS_Delete_Admin">
-          <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GS_Delete_Product">
-          <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GS_Delete_Product_Category">
-          <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GS_Delete_Product_Color">
-          <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GS_Delete_Product_Shape">
-          <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GS_Delete_Product_Size">
-          <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GS_Get_Admins" ReturnType="Collection(Gemstones_BCSF19E034Model.GS_Get_Admins_Result)" />
           <FunctionImport Name="GS_Get_Products" ReturnType="Collection(Gemstones_BCSF19E034Model.GS_Get_Products_Result)" />
@@ -356,7 +357,7 @@
         <ComplexType Name="GS_Get_Products_Result">
           <Property Type="Int64" Name="stone_id" Nullable="false" />
           <Property Type="String" Name="stone_name" Nullable="false" MaxLength="50" />
-          <Property Type="Int32" Name="stone_price" Nullable="false" />
+          <Property Type="Decimal" Name="stone_price" Nullable="false" Precision="19" />
           <Property Type="String" Name="stone_description" Nullable="true" MaxLength="150" />
           <Property Type="String" Name="stone_image_url" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="category_name" Nullable="true" MaxLength="50" />
@@ -393,7 +394,6 @@
           <EntitySetMapping Name="tbl_products_stone">
             <EntityTypeMapping TypeName="Gemstones_BCSF19E034Model.tbl_products_stone">
               <MappingFragment StoreEntitySet="tbl_products_stone">
-                <ScalarProperty Name="stone_quantity" ColumnName="stone_quantity" />
                 <ScalarProperty Name="stone_id" ColumnName="stone_id" />
                 <ScalarProperty Name="stone_name" ColumnName="stone_name" />
                 <ScalarProperty Name="stone_price" ColumnName="stone_price" />
@@ -409,6 +409,7 @@
                 <ScalarProperty Name="stone_dispersion" ColumnName="stone_dispersion" />
                 <ScalarProperty Name="stone_specific_gravity" ColumnName="stone_specific_gravity" />
                 <ScalarProperty Name="stone_density" ColumnName="stone_density" />
+                <ScalarProperty Name="stone_quantity" ColumnName="stone_quantity" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
