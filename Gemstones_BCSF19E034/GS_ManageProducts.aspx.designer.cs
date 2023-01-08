@@ -132,6 +132,15 @@ namespace Gemstones_BCSF19E034
         protected global::System.Web.UI.WebControls.TextBox Product_Stone_Density;
 
         /// <summary>
+        /// Product_Stone_Quantity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Product_Stone_Quantity;
+
+        /// <summary>
         /// Product_Stone_Image_Display control.
         /// </summary>
         /// <remarks>

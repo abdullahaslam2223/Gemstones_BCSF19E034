@@ -37,6 +37,7 @@ namespace Gemstones_BCSF19E034
                     Product_Stone_Dispersion.Text = Convert.ToString(product.stone_dispersion);
                     Product_Stone_SpecificGravity.Text = Convert.ToString(product.stone_specific_gravity);
                     Product_Stone_Density.Text = Convert.ToString(product.stone_density);
+                    Product_Stone_Quantity.Text = Convert.ToString(product.stone_quantity);
                     Product_Stone_Image_Display.ImageUrl = Configurations.ImagePath + product.stone_image_url;
                 }
             }
@@ -157,6 +158,7 @@ namespace Gemstones_BCSF19E034
                 stone.stone_dispersion = string.IsNullOrEmpty(Product_Stone_Dispersion.Text) ? 0 : Convert.ToInt32(Product_Stone_Dispersion.Text);
                 stone.stone_specific_gravity = string.IsNullOrEmpty(Product_Stone_SpecificGravity.Text) ? 0 : Convert.ToInt32(Product_Stone_SpecificGravity.Text);
                 stone.stone_density = string.IsNullOrEmpty(Product_Stone_Density.Text) ? 0 : Convert.ToInt32(Product_Stone_Density.Text);
+                stone.stone_quantity = string.IsNullOrEmpty(Product_Stone_Quantity.Text) ? 1 : Convert.ToInt32(Product_Stone_Quantity.Text);
 
                 if (Request.QueryString["id"] == null)
                 {

@@ -11,6 +11,7 @@
         <div style="background-color: #edf0ee;" class="px-3 py-3 mb-3 rounded">
             <asp:HyperLink NavigateUrl="~/GS_ManageProducts.aspx" ID="Add_New_Product_Lnk" CssClass="btn btn-outline-success" Text="Add Product" runat="server"></asp:HyperLink>
         </div>
+        <h2 id="No_Products" class="text-center" runat="server"></h2>
         <asp:GridView ID="GV_Products" ClientIDMode="Static" CssClass="table table-bordered" OnRowCommand="GV_Products_RowCommand" OnRowEditing="GV_Products_RowEditing" OnRowDeleting="GV_Products_RowDeleting" runat="server" AutoGenerateColumns="false">
             <Columns>
                 <asp:TemplateField HeaderText="Image">

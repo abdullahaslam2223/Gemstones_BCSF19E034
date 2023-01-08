@@ -24,6 +24,15 @@ namespace Gemstones_BCSF19E034
         protected global::System.Web.UI.WebControls.HyperLink Add_New_Product_Lnk;
 
         /// <summary>
+        /// No_Products control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl No_Products;
+
+        /// <summary>
         /// GV_Products control.
         /// </summary>
         /// <remarks>

@@ -144,6 +144,13 @@
                                             </div>
                                         </div>
 
+                                        <div class="mb-3 pb-2">
+                                            <div class="form-outline form-white">
+                                                <asp:TextBox ID="Product_Stone_Quantity" CssClass="form-control form-control" TextMode="Number" runat="server"></asp:TextBox>
+                                                <asp:Label CssClass="form-label mb-0" AssociatedControlID="Product_Stone_Quantity" Text="Stone Quantity" runat="server"></asp:Label>
+                                            </div>
+                                        </div>
+
                                         <div class="mb-1">
                                             <asp:Image Width="250px" ID="Product_Stone_Image_Display" runat="server" />
                                         </div>

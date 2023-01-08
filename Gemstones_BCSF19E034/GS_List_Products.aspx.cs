@@ -13,16 +13,35 @@ namespace Gemstones_BCSF19E034
         {
             if (IsPostBack) return;
             FillProducts();
-            GV_Products.UseAccessibleHeader = true;
-            GV_Products.HeaderRow.TableSection = TableRowSection.TableHeader;
+            EnableJQueryDataTableForGridView();
+        }
+
+        protected void EnableJQueryDataTableForGridView()
+        {
+            using(Gemstones_BCSF19E034Entities db = new Gemstones_BCSF19E034Entities())
+            {
+                var products = db.GS_Get_Products().ToList();
+                if(products.Count > 0)
+                {
+                    GV_Products.UseAccessibleHeader = true;
+                    GV_Products.HeaderRow.TableSection = TableRowSection.TableHeader;
+                }
+            }
         }
         protected void FillProducts()
         {
             using(Gemstones_BCSF19E034Entities db = new Gemstones_BCSF19E034Entities())
             {
                 var products = db.GS_Get_Products();
-                GV_Products.DataSource = products;
-                GV_Products.DataBind();
+                if(products.ToList().Count > 0)
+                {
+                    GV_Products.DataSource = products;
+                    GV_Products.DataBind();
+                }
+                else
+                {
+                    No_Products.InnerHtml = "There are no products found";
+                }
             }
         }
 
