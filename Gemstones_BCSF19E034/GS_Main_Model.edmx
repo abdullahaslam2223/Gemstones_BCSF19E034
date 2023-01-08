@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Gemstones_BCSF19E034Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Gemstones_BCSF19E034Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tbl_admin_users">
           <Key>
             <PropertyRef Name="user_id" />
@@ -24,7 +24,7 @@
           </Key>
           <Property Name="stone_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="stone_name" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="stone_price" Type="int" Nullable="false" />
+          <Property Name="stone_price" Type="money" Nullable="false" />
           <Property Name="stone_description" Type="nvarchar" MaxLength="150" />
           <Property Name="stone_image_url" Type="nvarchar" MaxLength="100" />
           <Property Name="stone_category_id" Type="int" />
@@ -37,6 +37,7 @@
           <Property Name="stone_dispersion" Type="float" />
           <Property Name="stone_specific_gravity" Type="float" />
           <Property Name="stone_density" Type="float" />
+          <Property Name="stone_quantity" Type="int" />
         </EntityType>
         <EntityType Name="tbl_stone_categories">
           <Key>
@@ -162,8 +163,7 @@
             <End Role="tbl_products_stone" EntitySet="tbl_products_stone" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Gemstones_BCSF19E034Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -203,6 +203,7 @@
           <NavigationProperty Name="tbl_stone_colors" Relationship="Self.FK_tbl_products_stone_tbl_stone_colors" FromRole="tbl_products_stone" ToRole="tbl_stone_colors" />
           <NavigationProperty Name="tbl_stone_shapes" Relationship="Self.FK_tbl_products_stone_tbl_stone_shapes" FromRole="tbl_products_stone" ToRole="tbl_stone_shapes" />
           <NavigationProperty Name="tbl_stone_sizes" Relationship="Self.FK_tbl_products_stone_tbl_stone_sizes" FromRole="tbl_products_stone" ToRole="tbl_stone_sizes" />
+          <Property Name="stone_quantity" Type="Int32" />
         </EntityType>
         <EntityType Name="tbl_stone_categories">
           <Key>
@@ -312,22 +313,22 @@
             <Parameter Name="password" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="GS_Delete_Admin">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GS_Delete_Product">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GS_Delete_Product_Category">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GS_Delete_Product_Color">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GS_Delete_Product_Shape">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GS_Delete_Product_Size">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GS_Get_Admins" ReturnType="Collection(Gemstones_BCSF19E034Model.GS_Get_Admins_Result)" />
           <FunctionImport Name="GS_Get_Products" ReturnType="Collection(Gemstones_BCSF19E034Model.GS_Get_Products_Result)" />
@@ -392,6 +393,7 @@
           <EntitySetMapping Name="tbl_products_stone">
             <EntityTypeMapping TypeName="Gemstones_BCSF19E034Model.tbl_products_stone">
               <MappingFragment StoreEntitySet="tbl_products_stone">
+                <ScalarProperty Name="stone_quantity" ColumnName="stone_quantity" />
                 <ScalarProperty Name="stone_id" ColumnName="stone_id" />
                 <ScalarProperty Name="stone_name" ColumnName="stone_name" />
                 <ScalarProperty Name="stone_price" ColumnName="stone_price" />
