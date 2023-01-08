@@ -147,17 +147,13 @@ namespace Gemstones_BCSF19E034
                 stone.stone_name = Product_Stone_Name.Text;
                 stone.stone_price = Convert.ToInt32(Product_Stone_Price.Text);
                 stone.stone_description = Product_Stone_Description.Text;
-                //stone.stone_category_id = Product_Stone_Category.SelectedIndex == 0 ? 2 : Product_Stone_Category.SelectedIndex;
-                stone.stone_category_id = Product_Stone_Category.SelectedIndex;
-                //stone.stone_color_id = Product_Stone_Color.SelectedIndex == 0 ? 1 : Product_Stone_Color.SelectedIndex;
-                stone.stone_color_id = Product_Stone_Color.SelectedIndex;
+                stone.stone_category_id = Convert.ToInt32(Product_Stone_Category.SelectedValue);
+                stone.stone_color_id = Convert.ToInt32(Product_Stone_Color.SelectedValue);
                 stone.stone_weight = string.IsNullOrEmpty(Product_Stone_Weight.Text) ? 0 : Convert.ToInt32(Product_Stone_Weight.Text);
                 stone.stone_hardness = string.IsNullOrEmpty(Product_Stone_Hardness.Text) ? 0 : Convert.ToInt32(Product_Stone_Hardness.Text);
-                //stone.stone_shape_id = Product_Stone_Shape.SelectedIndex == 0 ? 1 : Product_Stone_Shape.SelectedIndex;
-                stone.stone_shape_id = Product_Stone_Shape.SelectedIndex;
+                stone.stone_shape_id = Convert.ToInt32(Product_Stone_Shape.SelectedValue);
                 stone.stone_origin = Product_Stone_Origin.Text;
-                //stone.stone_size_id = Product_Stone_Size.SelectedIndex == 0 ? 1 : Product_Stone_Size.SelectedIndex;
-                stone.stone_size_id = Product_Stone_Size.SelectedIndex;
+                stone.stone_size_id = Convert.ToInt32(Product_Stone_Size.SelectedValue);
                 stone.stone_dispersion = string.IsNullOrEmpty(Product_Stone_Dispersion.Text) ? 0 : Convert.ToInt32(Product_Stone_Dispersion.Text);
                 stone.stone_specific_gravity = string.IsNullOrEmpty(Product_Stone_SpecificGravity.Text) ? 0 : Convert.ToInt32(Product_Stone_SpecificGravity.Text);
                 stone.stone_density = string.IsNullOrEmpty(Product_Stone_Density.Text) ? 0 : Convert.ToInt32(Product_Stone_Density.Text);
@@ -166,7 +162,6 @@ namespace Gemstones_BCSF19E034
                 {
                     db.tbl_products_stone.Add(stone);
                 }
-
                 db.SaveChanges();
                 Add_Product_Response.Text = "Success";
             }
