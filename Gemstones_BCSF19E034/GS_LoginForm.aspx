@@ -42,7 +42,7 @@
 
                                         <div id="Login_Error" runat="server"></div>
 
-                                        <asp:HyperLink NavigateUrl="#" CssClass="text-muted" Text="Forgot password?" runat="server"></asp:HyperLink>
+                                        <asp:HyperLink NavigateUrl="~/GS_ForgotPassword.aspx" CssClass="text-muted" Text="Forgot password?" runat="server"></asp:HyperLink>
                                     </div>
 
                                     <div class="d-flex align-items-center justify-content-center pb-4">

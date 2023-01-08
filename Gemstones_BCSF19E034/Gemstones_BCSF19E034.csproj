@@ -91,6 +91,7 @@
     <Content Include="assets\js\datatables.js" />
     <Content Include="assets\js\jquery.js" />
     <Content Include="assets\js\popper.min.js" />
+    <Content Include="GS_ForgotPassword.aspx" />
     <Content Include="GS_List_Admins.aspx" />
     <Content Include="GS_List_Products.aspx" />
     <Content Include="GS_List_Products_Settings.aspx" />
@@ -114,6 +115,13 @@
   <ItemGroup>
     <Compile Include="GS_Admin_DoLogin_Result.cs">
       <DependentUpon>GS_Main_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GS_ForgotPassword.aspx.cs">
+      <DependentUpon>GS_ForgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GS_ForgotPassword.aspx.designer.cs">
+      <DependentUpon>GS_ForgotPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="GS_Get_Admins_Result.cs">
       <DependentUpon>GS_Main_Model.tt</DependentUpon>
