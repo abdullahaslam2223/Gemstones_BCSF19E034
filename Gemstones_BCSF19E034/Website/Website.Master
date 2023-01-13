@@ -1,0 +1,20 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Website.master.cs" Inherits="Gemstones_BCSF19E034.Website.Website" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Gemstones Website</title>
+    <link href="../assets/css/bootstrap.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="Website_Head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="Website_Master" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="Website_Content" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
