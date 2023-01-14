@@ -160,6 +160,9 @@
         </Function>
         <Function Name="GS_Get_Admins" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="GS_Get_Products" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Web_Get_Cart_Products" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="unique_key" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="Gemstones_BCSF19E034ModelStoreContainer">
           <EntitySet Name="tbl_add_to_cart_temp" EntityType="Self.tbl_add_to_cart_temp" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_admin_users" EntityType="Self.tbl_admin_users" Schema="dbo" store:Type="Tables" />
@@ -364,6 +367,9 @@
             <End Role="tbl_products_stone" EntitySet="tbl_products_stone" />
             <End Role="tbl_add_to_cart_temp" EntitySet="tbl_add_to_cart_temp" />
           </AssociationSet>
+          <FunctionImport Name="Web_Get_Cart_Products" ReturnType="Collection(Gemstones_BCSF19E034Model.Web_Get_Cart_Products_Result)">
+            <Parameter Name="unique_key" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GS_Admin_DoLogin_Result">
           <Property Type="Int32" Name="user_id" Nullable="false" />
@@ -424,6 +430,24 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="Web_Get_Cart_Products_Result">
+          <Property Type="Int64" Name="stone_id" Nullable="false" />
+          <Property Type="String" Name="stone_name" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="stone_price" Nullable="false" Precision="19" />
+          <Property Type="String" Name="stone_description" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="stone_image_url" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="stone_category_id" Nullable="true" />
+          <Property Type="Int32" Name="stone_color_id" Nullable="true" />
+          <Property Type="Double" Name="stone_weight" Nullable="true" />
+          <Property Type="Int32" Name="stone_shape_id" Nullable="true" />
+          <Property Type="String" Name="stone_origin" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="stone_size_id" Nullable="true" />
+          <Property Type="Double" Name="stone_hardness" Nullable="true" />
+          <Property Type="Double" Name="stone_dispersion" Nullable="true" />
+          <Property Type="Double" Name="stone_specific_gravity" Nullable="true" />
+          <Property Type="Double" Name="stone_density" Nullable="true" />
+          <Property Type="Int32" Name="stone_quantity" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -563,6 +587,28 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Web_Get_Cart_Products" FunctionName="Gemstones_BCSF19E034Model.Store.Web_Get_Cart_Products">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Gemstones_BCSF19E034Model.Web_Get_Cart_Products_Result">
+                <ScalarProperty Name="stone_id" ColumnName="stone_id" />
+                <ScalarProperty Name="stone_name" ColumnName="stone_name" />
+                <ScalarProperty Name="stone_price" ColumnName="stone_price" />
+                <ScalarProperty Name="stone_description" ColumnName="stone_description" />
+                <ScalarProperty Name="stone_image_url" ColumnName="stone_image_url" />
+                <ScalarProperty Name="stone_category_id" ColumnName="stone_category_id" />
+                <ScalarProperty Name="stone_color_id" ColumnName="stone_color_id" />
+                <ScalarProperty Name="stone_weight" ColumnName="stone_weight" />
+                <ScalarProperty Name="stone_shape_id" ColumnName="stone_shape_id" />
+                <ScalarProperty Name="stone_origin" ColumnName="stone_origin" />
+                <ScalarProperty Name="stone_size_id" ColumnName="stone_size_id" />
+                <ScalarProperty Name="stone_hardness" ColumnName="stone_hardness" />
+                <ScalarProperty Name="stone_dispersion" ColumnName="stone_dispersion" />
+                <ScalarProperty Name="stone_specific_gravity" ColumnName="stone_specific_gravity" />
+                <ScalarProperty Name="stone_density" ColumnName="stone_density" />
+                <ScalarProperty Name="stone_quantity" ColumnName="stone_quantity" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

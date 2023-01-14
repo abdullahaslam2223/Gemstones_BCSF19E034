@@ -229,6 +229,13 @@
     <Compile Include="tbl_stone_sizes.cs">
       <DependentUpon>GS_Main_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Website\List_CartItems.aspx.cs">
+      <DependentUpon>List_CartItems.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Website\List_CartItems.aspx.designer.cs">
+      <DependentUpon>List_CartItems.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Website\Products_Archive.aspx.cs">
       <DependentUpon>Products_Archive.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -242,6 +249,9 @@
     </Compile>
     <Compile Include="Website\Website.Master.designer.cs">
       <DependentUpon>Website.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Web_Get_Cart_Products_Result.cs">
+      <DependentUpon>GS_Main_Model.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -262,6 +272,7 @@
     </None>
     <Content Include="Website\assets\css\productsArchive\style.css" />
     <Content Include="Website\assets\css\style.css" />
+    <Content Include="Website\List_CartItems.aspx" />
     <Content Include="Website\Products_Archive.aspx" />
     <Content Include="Website\Website.Master" />
   </ItemGroup>

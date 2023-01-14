@@ -22,8 +22,8 @@ namespace Gemstones_BCSF19E034.Website
                 var result = (from c in db.tbl_stone_categories select c).ToList();
                 if (result.Count > 0)
                 {
-                    GV_Product_Archive_Categories.DataSource = result;
-                    GV_Product_Archive_Categories.DataBind();
+                    DL_Product_Archive_Categories.DataSource = result;
+                    DL_Product_Archive_Categories.DataBind();
                 }
                 else
                 {

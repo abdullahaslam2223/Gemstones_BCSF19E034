@@ -5,6 +5,7 @@
 
 .theme-bg-primary {
     background-color: var(--primary);
+    color: white;
 }
 
 .theme-bg-secondary {
