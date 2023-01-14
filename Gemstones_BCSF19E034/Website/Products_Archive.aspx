@@ -10,7 +10,7 @@
                 <Columns>
                     <asp:TemplateField HeaderText="Categories">
                         <ItemTemplate>
-                            <asp:HyperLink runat="server" NavigateUrl='<%# "~/Website/Products_Archive.aspx?id=" + Eval("category_id") %> ' Text='<%# Eval("category_name") %>'></asp:HyperLink>
+                            <asp:HyperLink runat="server" NavigateUrl='<%# "~/Website/Products_Archive.aspx?cid=" + Eval("category_id") %> ' Text='<%# Eval("category_name") %>'></asp:HyperLink>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
@@ -18,7 +18,20 @@
         </div>
         <div class="col-10">
             <h3 id="No_Products" runat="server"></h3>
-            <asp:GridView runat="server" ID="GV_Products_Archive_Data" CssClass="table table-bordered"></asp:GridView>
+
+            <asp:DataList ID="DL_Products_Archive_Data" runat="server" RepeatLayout="Flow" CssClass="row" ItemStyle-CssClass="col">
+                <ItemTemplate>
+                    <div class="card mt-4" style="width: 18rem;">
+                        <asp:Image ImageUrl='<%#"../assets/images/products/" + Eval("stone_image_url") %>' CssClass="image-fluid card-img-top" runat="server" Width="" Height="200px" />
+                        <div class="card-body text-light theme-bg-primary">
+                            <h5 class="card-title text-center" style="font-size: 20px;"><b>Price:</b> <span class="city"><%# String.Format("{0:0.00}", Eval("stone_price")) %></span>/pkr<br />
+                            </h5>
+                            <asp:LinkButton runat="server" CssClass="btn mt-2 w-100 theme-bg-secondary-outline" Text="Add to Cart" />
+                        </div>
+                    </div>
+                </ItemTemplate>
+            </asp:DataList>
+
         </div>
     </div>
 </asp:Content>

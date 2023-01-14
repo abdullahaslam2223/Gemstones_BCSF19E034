@@ -257,6 +257,8 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="Website\assets\css\productsArchive\style.css" />
+    <Content Include="Website\assets\css\style.css" />
     <Content Include="Website\Products_Archive.aspx" />
     <Content Include="Website\Website.Master" />
   </ItemGroup>

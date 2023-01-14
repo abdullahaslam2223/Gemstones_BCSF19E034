@@ -42,12 +42,12 @@ namespace Gemstones_BCSF19E034.Website
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl No_Products;
 
         /// <summary>
-        /// GV_Products_Archive_Data control.
+        /// DL_Products_Archive_Data control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GV_Products_Archive_Data;
+        protected global::System.Web.UI.WebControls.DataList DL_Products_Archive_Data;
     }
 }

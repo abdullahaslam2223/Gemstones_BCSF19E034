@@ -35,14 +35,31 @@ namespace Gemstones_BCSF19E034.Website
         {
             using (Gemstones_BCSF19E034Entities db = new Gemstones_BCSF19E034Entities())
             {
-                var result = db.GS_Get_Products().ToList();
-                if(result.Count > 0)
+                if(Request.QueryString["cid"] != null)
                 {
-                    GV_Products_Archive_Data.DataSource = result;
-                    GV_Products_Archive_Data.DataBind();
+                    int category_id = Convert.ToInt32(Request.QueryString["cid"]);
+                    var cresult = (from p in db.tbl_products_stone where p.stone_category_id == category_id select p).ToList();
+                    if (cresult.Count > 0)
+                    {
+                        DL_Products_Archive_Data.DataSource = cresult;
+                        DL_Products_Archive_Data.DataBind();
+                    }
+                    else
+                    {
+                        No_Products.InnerText = "No products found";
+                    }
                 } else
                 {
-                    No_Products.InnerText = "No products found";
+                    var result = (from p in db.tbl_products_stone select p).ToList();
+                    if (result.Count > 0)
+                    {
+                        DL_Products_Archive_Data.DataSource = result;
+                        DL_Products_Archive_Data.DataBind();
+                    }
+                    else
+                    {
+                        No_Products.InnerText = "No products found";
+                    }
                 }
             }
         }
