@@ -33,6 +33,7 @@ namespace Gemstones_BCSF19E034
         public virtual DbSet<tbl_stone_colors> tbl_stone_colors { get; set; }
         public virtual DbSet<tbl_stone_shapes> tbl_stone_shapes { get; set; }
         public virtual DbSet<tbl_stone_sizes> tbl_stone_sizes { get; set; }
+        public virtual DbSet<tbl_add_to_cart_temp> tbl_add_to_cart_temp { get; set; }
     
         public virtual ObjectResult<GS_Admin_DoLogin_Result> GS_Admin_DoLogin(string email, string password)
         {

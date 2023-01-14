@@ -14,6 +14,12 @@ namespace Gemstones_BCSF19E034
     
     public partial class tbl_products_stone
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tbl_products_stone()
+        {
+            this.tbl_add_to_cart_temp = new HashSet<tbl_add_to_cart_temp>();
+        }
+    
         public long stone_id { get; set; }
         public string stone_name { get; set; }
         public decimal stone_price { get; set; }
@@ -35,5 +41,7 @@ namespace Gemstones_BCSF19E034
         public virtual tbl_stone_colors tbl_stone_colors { get; set; }
         public virtual tbl_stone_shapes tbl_stone_shapes { get; set; }
         public virtual tbl_stone_sizes tbl_stone_sizes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_add_to_cart_temp> tbl_add_to_cart_temp { get; set; }
     }
 }

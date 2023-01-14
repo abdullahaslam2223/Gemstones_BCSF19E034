@@ -4,7 +4,16 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Gemstones_BCSF19E034Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Gemstones_BCSF19E034Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_add_to_cart_temp">
+          <Key>
+            <PropertyRef Name="temp_id" />
+          </Key>
+          <Property Name="temp_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_unique_key" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="product_id" Type="bigint" />
+          <Property Name="created_at" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="tbl_admin_users">
           <Key>
             <PropertyRef Name="user_id" />
@@ -67,6 +76,18 @@
           <Property Name="size_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="size_name" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <Association Name="FK_tbl_add_to_cart_temp_tbl_products_stone">
+          <End Role="tbl_products_stone" Type="Self.tbl_products_stone" Multiplicity="0..1" />
+          <End Role="tbl_add_to_cart_temp" Type="Self.tbl_add_to_cart_temp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_products_stone">
+              <PropertyRef Name="stone_id" />
+            </Principal>
+            <Dependent Role="tbl_add_to_cart_temp">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_tbl_products_stone_tbl_stone_categories">
           <End Role="tbl_stone_categories" Type="Self.tbl_stone_categories" Multiplicity="0..1" />
           <End Role="tbl_products_stone" Type="Self.tbl_products_stone" Multiplicity="*" />
@@ -140,12 +161,17 @@
         <Function Name="GS_Get_Admins" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="GS_Get_Products" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="Gemstones_BCSF19E034ModelStoreContainer">
+          <EntitySet Name="tbl_add_to_cart_temp" EntityType="Self.tbl_add_to_cart_temp" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_admin_users" EntityType="Self.tbl_admin_users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_products_stone" EntityType="Self.tbl_products_stone" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_stone_categories" EntityType="Self.tbl_stone_categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_stone_colors" EntityType="Self.tbl_stone_colors" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_stone_shapes" EntityType="Self.tbl_stone_shapes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_stone_sizes" EntityType="Self.tbl_stone_sizes" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tbl_add_to_cart_temp_tbl_products_stone" Association="Self.FK_tbl_add_to_cart_temp_tbl_products_stone">
+            <End Role="tbl_products_stone" EntitySet="tbl_products_stone" />
+            <End Role="tbl_add_to_cart_temp" EntitySet="tbl_add_to_cart_temp" />
+          </AssociationSet>
           <AssociationSet Name="FK_tbl_products_stone_tbl_stone_categories" Association="Self.FK_tbl_products_stone_tbl_stone_categories">
             <End Role="tbl_stone_categories" EntitySet="tbl_stone_categories" />
             <End Role="tbl_products_stone" EntitySet="tbl_products_stone" />
@@ -163,8 +189,7 @@
             <End Role="tbl_products_stone" EntitySet="tbl_products_stone" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Gemstones_BCSF19E034Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -205,6 +230,7 @@
           <NavigationProperty Name="tbl_stone_colors" Relationship="Self.FK_tbl_products_stone_tbl_stone_colors" FromRole="tbl_products_stone" ToRole="tbl_stone_colors" />
           <NavigationProperty Name="tbl_stone_shapes" Relationship="Self.FK_tbl_products_stone_tbl_stone_shapes" FromRole="tbl_products_stone" ToRole="tbl_stone_shapes" />
           <NavigationProperty Name="tbl_stone_sizes" Relationship="Self.FK_tbl_products_stone_tbl_stone_sizes" FromRole="tbl_products_stone" ToRole="tbl_stone_sizes" />
+          <NavigationProperty Name="tbl_add_to_cart_temp" Relationship="Gemstones_BCSF19E034Model.FK_tbl_add_to_cart_temp_tbl_products_stone" FromRole="tbl_products_stone" ToRole="tbl_add_to_cart_temp" />
         </EntityType>
         <EntityType Name="tbl_stone_categories">
           <Key>
@@ -314,25 +340,30 @@
             <Parameter Name="password" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="GS_Delete_Admin">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GS_Delete_Product">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GS_Delete_Product_Category">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GS_Delete_Product_Color">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GS_Delete_Product_Shape">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GS_Delete_Product_Size">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GS_Get_Admins" ReturnType="Collection(Gemstones_BCSF19E034Model.GS_Get_Admins_Result)" />
           <FunctionImport Name="GS_Get_Products" ReturnType="Collection(Gemstones_BCSF19E034Model.GS_Get_Products_Result)" />
+          <EntitySet Name="tbl_add_to_cart_temp" EntityType="Gemstones_BCSF19E034Model.tbl_add_to_cart_temp" />
+          <AssociationSet Name="FK_tbl_add_to_cart_temp_tbl_products_stone" Association="Gemstones_BCSF19E034Model.FK_tbl_add_to_cart_temp_tbl_products_stone">
+            <End Role="tbl_products_stone" EntitySet="tbl_products_stone" />
+            <End Role="tbl_add_to_cart_temp" EntitySet="tbl_add_to_cart_temp" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="GS_Admin_DoLogin_Result">
           <Property Type="Int32" Name="user_id" Nullable="false" />
@@ -371,6 +402,28 @@
           <Property Type="Double" Name="stone_specific_gravity" Nullable="true" />
           <Property Type="Double" Name="stone_density" Nullable="true" />
         </ComplexType>
+        <EntityType Name="tbl_add_to_cart_temp">
+          <Key>
+            <PropertyRef Name="temp_id" />
+          </Key>
+          <Property Name="temp_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_unique_key" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="product_id" Type="Int64" />
+          <NavigationProperty Name="tbl_products_stone" Relationship="Gemstones_BCSF19E034Model.FK_tbl_add_to_cart_temp_tbl_products_stone" FromRole="tbl_add_to_cart_temp" ToRole="tbl_products_stone" />
+          <Property Name="created_at" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <Association Name="FK_tbl_add_to_cart_temp_tbl_products_stone">
+          <End Type="Gemstones_BCSF19E034Model.tbl_products_stone" Role="tbl_products_stone" Multiplicity="0..1" />
+          <End Type="Gemstones_BCSF19E034Model.tbl_add_to_cart_temp" Role="tbl_add_to_cart_temp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_products_stone">
+              <PropertyRef Name="stone_id" />
+            </Principal>
+            <Dependent Role="tbl_add_to_cart_temp">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -500,6 +553,16 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="tbl_add_to_cart_temp">
+            <EntityTypeMapping TypeName="Gemstones_BCSF19E034Model.tbl_add_to_cart_temp">
+              <MappingFragment StoreEntitySet="tbl_add_to_cart_temp">
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+                <ScalarProperty Name="user_unique_key" ColumnName="user_unique_key" />
+                <ScalarProperty Name="temp_id" ColumnName="temp_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

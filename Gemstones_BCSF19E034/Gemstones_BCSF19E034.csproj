@@ -208,6 +208,9 @@
       <DependentUpon>GS_ManageProducts.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tbl_add_to_cart_temp.cs">
+      <DependentUpon>GS_Main_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="tbl_admin_users.cs">
       <DependentUpon>GS_Main_Model.tt</DependentUpon>
     </Compile>

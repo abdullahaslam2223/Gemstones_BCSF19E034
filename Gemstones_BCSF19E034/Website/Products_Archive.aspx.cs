@@ -63,5 +63,18 @@ namespace Gemstones_BCSF19E034.Website
                 }
             }
         }
+
+        protected void Product_Add_Cart_Btn_Command(object sender, CommandEventArgs e)
+        {
+            using(Gemstones_BCSF19E034Entities db = new Gemstones_BCSF19E034Entities())
+            {
+                tbl_add_to_cart_temp tmp = new tbl_add_to_cart_temp();
+                tmp.product_id = Convert.ToInt64(((string)e.CommandArgument).ToString());
+                tmp.user_unique_key = Request.Cookies["Gemstones_BCSF19E034_Website"]["unique_id"];
+                tmp.created_at = DateTime.Now;
+                db.tbl_add_to_cart_temp.Add(tmp);
+                db.SaveChanges();
+            }
+        }
     }
 }
