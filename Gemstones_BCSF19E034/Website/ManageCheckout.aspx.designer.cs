@@ -67,5 +67,23 @@ namespace Gemstones_BCSF19E034.Website
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Customer_Additional_Info;
+
+        /// <summary>
+        /// Customer_Place_Order_Btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Customer_Place_Order_Btn;
+
+        /// <summary>
+        /// Place_Order_Response control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Place_Order_Response;
     }
 }

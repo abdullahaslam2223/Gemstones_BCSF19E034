@@ -18,6 +18,7 @@ namespace Gemstones_BCSF19E034
         public tbl_products_stone()
         {
             this.tbl_add_to_cart_temp = new HashSet<tbl_add_to_cart_temp>();
+            this.tbl_orders_details = new HashSet<tbl_orders_details>();
         }
     
         public long stone_id { get; set; }
@@ -43,5 +44,7 @@ namespace Gemstones_BCSF19E034
         public virtual tbl_stone_sizes tbl_stone_sizes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_add_to_cart_temp> tbl_add_to_cart_temp { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_orders_details> tbl_orders_details { get; set; }
     }
 }

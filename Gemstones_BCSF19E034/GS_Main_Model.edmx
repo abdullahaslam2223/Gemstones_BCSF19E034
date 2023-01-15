@@ -27,6 +27,28 @@
           <Property Name="image_name" Type="varchar" MaxLength="100" />
           <Property Name="super" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="tbl_orders_details">
+          <Key>
+            <PropertyRef Name="order_details_id" />
+          </Key>
+          <Property Name="order_details_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="product_id" Type="bigint" />
+          <Property Name="product_price" Type="money" Nullable="false" />
+          <Property Name="customer_id" Type="bigint" />
+        </EntityType>
+        <EntityType Name="tbl_orders_main">
+          <Key>
+            <PropertyRef Name="customer_id" />
+          </Key>
+          <Property Name="customer_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="customer_first_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="customer_last_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="customer_billing_address" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="customer_email" Type="varchar" MaxLength="100" />
+          <Property Name="customer_phone" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="customer_additional_info" Type="varchar" MaxLength="500" />
+          <Property Name="created_at" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="tbl_products_stone">
           <Key>
             <PropertyRef Name="stone_id" />
@@ -84,6 +106,30 @@
               <PropertyRef Name="stone_id" />
             </Principal>
             <Dependent Role="tbl_add_to_cart_temp">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_orders_details_tbl_orders_main">
+          <End Role="tbl_orders_main" Type="Self.tbl_orders_main" Multiplicity="0..1" />
+          <End Role="tbl_orders_details" Type="Self.tbl_orders_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_orders_main">
+              <PropertyRef Name="customer_id" />
+            </Principal>
+            <Dependent Role="tbl_orders_details">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_orders_details_tbl_products_stone">
+          <End Role="tbl_products_stone" Type="Self.tbl_products_stone" Multiplicity="0..1" />
+          <End Role="tbl_orders_details" Type="Self.tbl_orders_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_products_stone">
+              <PropertyRef Name="stone_id" />
+            </Principal>
+            <Dependent Role="tbl_orders_details">
               <PropertyRef Name="product_id" />
             </Dependent>
           </ReferentialConstraint>
@@ -166,6 +212,8 @@
         <EntityContainer Name="Gemstones_BCSF19E034ModelStoreContainer">
           <EntitySet Name="tbl_add_to_cart_temp" EntityType="Self.tbl_add_to_cart_temp" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_admin_users" EntityType="Self.tbl_admin_users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_orders_details" EntityType="Self.tbl_orders_details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_orders_main" EntityType="Self.tbl_orders_main" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_products_stone" EntityType="Self.tbl_products_stone" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_stone_categories" EntityType="Self.tbl_stone_categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_stone_colors" EntityType="Self.tbl_stone_colors" Schema="dbo" store:Type="Tables" />
@@ -174,6 +222,14 @@
           <AssociationSet Name="FK_tbl_add_to_cart_temp_tbl_products_stone" Association="Self.FK_tbl_add_to_cart_temp_tbl_products_stone">
             <End Role="tbl_products_stone" EntitySet="tbl_products_stone" />
             <End Role="tbl_add_to_cart_temp" EntitySet="tbl_add_to_cart_temp" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_orders_details_tbl_orders_main" Association="Self.FK_tbl_orders_details_tbl_orders_main">
+            <End Role="tbl_orders_main" EntitySet="tbl_orders_main" />
+            <End Role="tbl_orders_details" EntitySet="tbl_orders_details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_orders_details_tbl_products_stone" Association="Self.FK_tbl_orders_details_tbl_products_stone">
+            <End Role="tbl_products_stone" EntitySet="tbl_products_stone" />
+            <End Role="tbl_orders_details" EntitySet="tbl_orders_details" />
           </AssociationSet>
           <AssociationSet Name="FK_tbl_products_stone_tbl_stone_categories" Association="Self.FK_tbl_products_stone_tbl_stone_categories">
             <End Role="tbl_stone_categories" EntitySet="tbl_stone_categories" />
@@ -234,6 +290,7 @@
           <NavigationProperty Name="tbl_stone_shapes" Relationship="Self.FK_tbl_products_stone_tbl_stone_shapes" FromRole="tbl_products_stone" ToRole="tbl_stone_shapes" />
           <NavigationProperty Name="tbl_stone_sizes" Relationship="Self.FK_tbl_products_stone_tbl_stone_sizes" FromRole="tbl_products_stone" ToRole="tbl_stone_sizes" />
           <NavigationProperty Name="tbl_add_to_cart_temp" Relationship="Gemstones_BCSF19E034Model.FK_tbl_add_to_cart_temp_tbl_products_stone" FromRole="tbl_products_stone" ToRole="tbl_add_to_cart_temp" />
+          <NavigationProperty Name="tbl_orders_details" Relationship="Gemstones_BCSF19E034Model.FK_tbl_orders_details_tbl_products_stone" FromRole="tbl_products_stone" ToRole="tbl_orders_details" />
         </EntityType>
         <EntityType Name="tbl_stone_categories">
           <Key>
@@ -368,8 +425,18 @@
             <End Role="tbl_add_to_cart_temp" EntitySet="tbl_add_to_cart_temp" />
           </AssociationSet>
           <FunctionImport Name="Web_Get_Cart_Products" ReturnType="Collection(Gemstones_BCSF19E034Model.Web_Get_Cart_Products_Result)">
-            <Parameter Name="unique_key" Mode="In" Type="String" />
+          <Parameter Name="unique_key" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="tbl_orders_details" EntityType="Gemstones_BCSF19E034Model.tbl_orders_details" />
+          <EntitySet Name="tbl_orders_main" EntityType="Gemstones_BCSF19E034Model.tbl_orders_main" />
+          <AssociationSet Name="FK_tbl_orders_details_tbl_orders_main" Association="Gemstones_BCSF19E034Model.FK_tbl_orders_details_tbl_orders_main">
+            <End Role="tbl_orders_main" EntitySet="tbl_orders_main" />
+            <End Role="tbl_orders_details" EntitySet="tbl_orders_details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_orders_details_tbl_products_stone" Association="Gemstones_BCSF19E034Model.FK_tbl_orders_details_tbl_products_stone">
+            <End Role="tbl_products_stone" EntitySet="tbl_products_stone" />
+            <End Role="tbl_orders_details" EntitySet="tbl_orders_details" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="GS_Admin_DoLogin_Result">
           <Property Type="Int32" Name="user_id" Nullable="false" />
@@ -448,6 +515,55 @@
           <Property Type="Double" Name="stone_density" Nullable="true" />
           <Property Type="Int32" Name="stone_quantity" Nullable="true" />
         </ComplexType>
+        <EntityType Name="tbl_orders_details">
+          <Key>
+            <PropertyRef Name="order_details_id" />
+          </Key>
+          <Property Name="order_details_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="product_id" Type="Int64" />
+          <Property Name="product_price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="customer_id" Type="Int64" />
+          <NavigationProperty Name="tbl_orders_main" Relationship="Gemstones_BCSF19E034Model.FK_tbl_orders_details_tbl_orders_main" FromRole="tbl_orders_details" ToRole="tbl_orders_main" />
+          <NavigationProperty Name="tbl_products_stone" Relationship="Gemstones_BCSF19E034Model.FK_tbl_orders_details_tbl_products_stone" FromRole="tbl_orders_details" ToRole="tbl_products_stone" />
+        </EntityType>
+        <EntityType Name="tbl_orders_main">
+          <Key>
+            <PropertyRef Name="customer_id" />
+          </Key>
+          <Property Name="customer_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customer_first_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="customer_last_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="customer_billing_address" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="customer_email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="customer_phone" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="customer_additional_info" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="created_at" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="tbl_orders_details" Relationship="Gemstones_BCSF19E034Model.FK_tbl_orders_details_tbl_orders_main" FromRole="tbl_orders_main" ToRole="tbl_orders_details" />
+        </EntityType>
+        <Association Name="FK_tbl_orders_details_tbl_orders_main">
+          <End Type="Gemstones_BCSF19E034Model.tbl_orders_main" Role="tbl_orders_main" Multiplicity="0..1" />
+          <End Type="Gemstones_BCSF19E034Model.tbl_orders_details" Role="tbl_orders_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_orders_main">
+              <PropertyRef Name="customer_id" />
+            </Principal>
+            <Dependent Role="tbl_orders_details">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_orders_details_tbl_products_stone">
+          <End Type="Gemstones_BCSF19E034Model.tbl_products_stone" Role="tbl_products_stone" Multiplicity="0..1" />
+          <End Type="Gemstones_BCSF19E034Model.tbl_orders_details" Role="tbl_orders_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_products_stone">
+              <PropertyRef Name="stone_id" />
+            </Principal>
+            <Dependent Role="tbl_orders_details">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -609,6 +725,30 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="tbl_orders_details">
+            <EntityTypeMapping TypeName="Gemstones_BCSF19E034Model.tbl_orders_details">
+              <MappingFragment StoreEntitySet="tbl_orders_details">
+                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+                <ScalarProperty Name="product_price" ColumnName="product_price" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+                <ScalarProperty Name="order_details_id" ColumnName="order_details_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_orders_main">
+            <EntityTypeMapping TypeName="Gemstones_BCSF19E034Model.tbl_orders_main">
+              <MappingFragment StoreEntitySet="tbl_orders_main">
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="customer_additional_info" ColumnName="customer_additional_info" />
+                <ScalarProperty Name="customer_phone" ColumnName="customer_phone" />
+                <ScalarProperty Name="customer_email" ColumnName="customer_email" />
+                <ScalarProperty Name="customer_billing_address" ColumnName="customer_billing_address" />
+                <ScalarProperty Name="customer_last_name" ColumnName="customer_last_name" />
+                <ScalarProperty Name="customer_first_name" ColumnName="customer_first_name" />
+                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

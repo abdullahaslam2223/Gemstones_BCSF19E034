@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Website_Content" runat="server">
     <form runat="server">
     <div class="mx-3">
-        <h1 class="text-center py-2 mt-1 theme-bg-primary text-light">Cart Items</h1>
+        <h1 class="text-center py-2 mt-1 theme-bg-primary text-light">CART ITEMS</h1>
         <asp:GridView runat="server" CssClass="table table-bordered" ID="GV_Cart_Items" AutoGenerateColumns="false">
             <Columns>
                 <asp:TemplateField HeaderText="Image">
@@ -17,6 +17,11 @@
                 <asp:TemplateField HeaderText="Stone Price">
                     <ItemTemplate>
                         <span><%# String.Format("{0:0.00}", Eval("stone_price")) %></span><sub>/pkr</sub>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Delete">
+                    <ItemTemplate>
+                        <asp:Button runat="server" Text="Delete" CssClass="btn btn-outline-danger" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
