@@ -6,7 +6,7 @@
     <form runat="server">
     <div class="mx-3">
         <h1 class="text-center py-2 mt-1 theme-bg-primary text-light">CART ITEMS</h1>
-        <asp:GridView runat="server" CssClass="table table-bordered" ID="GV_Cart_Items" AutoGenerateColumns="false">
+        <asp:GridView runat="server" CssClass="table table-bordered" ID="GV_Cart_Items" OnRowDeleting="GV_Cart_Items_RowDeleting" OnRowCommand="GV_Cart_Items_RowCommand" AutoGenerateColumns="false">
             <Columns>
                 <asp:TemplateField HeaderText="Image">
                     <ItemTemplate>
@@ -19,13 +19,14 @@
                         <span><%# String.Format("{0:0.00}", Eval("stone_price")) %></span><sub>/pkr</sub>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Delete">
+                <asp:TemplateField HeaderText="Remove from Cart">
                     <ItemTemplate>
-                        <asp:Button runat="server" Text="Delete" CssClass="btn btn-outline-danger" />
+                        <asp:Button runat="server" ID="Remove_Cart_Item_Btn" CommandName="delete" CommandArgument='<%# Eval("temp_id") %>' Text="Remove" OnClientClick="return confirm('Are you sure?');" CssClass="btn btn-danger" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
+        <asp:Label runat="server" ID="Remove_Cart_Item_Response"></asp:Label>
         <asp:HyperLink NavigateUrl="~/Website/ManageCheckout.aspx" runat="server" Text="Proceed to Checkout" CssClass="btn theme-btn-primary"></asp:HyperLink>
     </div>
         </form>

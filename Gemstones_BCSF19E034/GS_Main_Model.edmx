@@ -206,6 +206,9 @@
         </Function>
         <Function Name="GS_Get_Admins" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="GS_Get_Products" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Web_Delete_Cart_Product" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="temp_id" Type="int" Mode="In" />
+        </Function>
         <Function Name="Web_Get_Cart_Products" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="unique_key" Type="varchar" Mode="In" />
         </Function>
@@ -437,6 +440,9 @@
             <End Role="tbl_products_stone" EntitySet="tbl_products_stone" />
             <End Role="tbl_orders_details" EntitySet="tbl_orders_details" />
           </AssociationSet>
+          <FunctionImport Name="Web_Delete_Cart_Product">
+            <Parameter Name="temp_id" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GS_Admin_DoLogin_Result">
           <Property Type="Int32" Name="user_id" Nullable="false" />
@@ -749,6 +755,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Web_Delete_Cart_Product" FunctionName="Gemstones_BCSF19E034Model.Store.Web_Delete_Cart_Product" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

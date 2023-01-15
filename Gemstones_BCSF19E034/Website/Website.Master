@@ -30,9 +30,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="Products_Archive.aspx">Products</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                        </li>
                     </ul>
                     <div class="d-flex">
                         <asp:HyperLink runat="server" CssClass="btn btn-outline-success" NavigateUrl="~/Website/List_CartItems.aspx" Text="View Cart"></asp:HyperLink>
