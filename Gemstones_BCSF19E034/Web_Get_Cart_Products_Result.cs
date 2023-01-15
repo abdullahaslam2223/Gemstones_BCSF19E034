@@ -29,5 +29,6 @@ namespace Gemstones_BCSF19E034
         public Nullable<double> stone_specific_gravity { get; set; }
         public Nullable<double> stone_density { get; set; }
         public Nullable<int> stone_quantity { get; set; }
+        public int temp_id { get; set; }
     }
 }

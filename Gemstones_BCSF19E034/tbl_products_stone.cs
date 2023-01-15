@@ -38,13 +38,13 @@ namespace Gemstones_BCSF19E034
         public Nullable<double> stone_density { get; set; }
         public Nullable<int> stone_quantity { get; set; }
     
-        public virtual tbl_stone_categories tbl_stone_categories { get; set; }
-        public virtual tbl_stone_colors tbl_stone_colors { get; set; }
-        public virtual tbl_stone_shapes tbl_stone_shapes { get; set; }
-        public virtual tbl_stone_sizes tbl_stone_sizes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_add_to_cart_temp> tbl_add_to_cart_temp { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_orders_details> tbl_orders_details { get; set; }
+        public virtual tbl_stone_categories tbl_stone_categories { get; set; }
+        public virtual tbl_stone_colors tbl_stone_colors { get; set; }
+        public virtual tbl_stone_shapes tbl_stone_shapes { get; set; }
+        public virtual tbl_stone_sizes tbl_stone_sizes { get; set; }
     }
 }

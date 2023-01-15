@@ -27,15 +27,15 @@ namespace Gemstones_BCSF19E034
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<tbl_add_to_cart_temp> tbl_add_to_cart_temp { get; set; }
         public virtual DbSet<tbl_admin_users> tbl_admin_users { get; set; }
+        public virtual DbSet<tbl_orders_details> tbl_orders_details { get; set; }
+        public virtual DbSet<tbl_orders_main> tbl_orders_main { get; set; }
         public virtual DbSet<tbl_products_stone> tbl_products_stone { get; set; }
         public virtual DbSet<tbl_stone_categories> tbl_stone_categories { get; set; }
         public virtual DbSet<tbl_stone_colors> tbl_stone_colors { get; set; }
         public virtual DbSet<tbl_stone_shapes> tbl_stone_shapes { get; set; }
         public virtual DbSet<tbl_stone_sizes> tbl_stone_sizes { get; set; }
-        public virtual DbSet<tbl_add_to_cart_temp> tbl_add_to_cart_temp { get; set; }
-        public virtual DbSet<tbl_orders_details> tbl_orders_details { get; set; }
-        public virtual DbSet<tbl_orders_main> tbl_orders_main { get; set; }
     
         public virtual ObjectResult<GS_Admin_DoLogin_Result> GS_Admin_DoLogin(string email, string password)
         {
@@ -114,15 +114,6 @@ namespace Gemstones_BCSF19E034
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GS_Get_Products_Result>("GS_Get_Products");
         }
     
-        public virtual ObjectResult<Web_Get_Cart_Products_Result> Web_Get_Cart_Products(string unique_key)
-        {
-            var unique_keyParameter = unique_key != null ?
-                new ObjectParameter("unique_key", unique_key) :
-                new ObjectParameter("unique_key", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Web_Get_Cart_Products_Result>("Web_Get_Cart_Products", unique_keyParameter);
-        }
-    
         public virtual int Web_Delete_Cart_Product(Nullable<int> temp_id)
         {
             var temp_idParameter = temp_id.HasValue ?
@@ -130,6 +121,15 @@ namespace Gemstones_BCSF19E034
                 new ObjectParameter("temp_id", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Web_Delete_Cart_Product", temp_idParameter);
+        }
+    
+        public virtual ObjectResult<Web_Get_Cart_Products_Result> Web_Get_Cart_Products(string unique_key)
+        {
+            var unique_keyParameter = unique_key != null ?
+                new ObjectParameter("unique_key", unique_key) :
+                new ObjectParameter("unique_key", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Web_Get_Cart_Products_Result>("Web_Get_Cart_Products", unique_keyParameter);
         }
     }
 }
