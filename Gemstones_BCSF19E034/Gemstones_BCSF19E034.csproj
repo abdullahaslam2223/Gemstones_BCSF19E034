@@ -236,6 +236,13 @@
     <Compile Include="Website\List_CartItems.aspx.designer.cs">
       <DependentUpon>List_CartItems.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Website\ManageCheckout.aspx.cs">
+      <DependentUpon>ManageCheckout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Website\ManageCheckout.aspx.designer.cs">
+      <DependentUpon>ManageCheckout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Website\Products_Archive.aspx.cs">
       <DependentUpon>Products_Archive.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -273,6 +280,7 @@
     <Content Include="Website\assets\css\productsArchive\style.css" />
     <Content Include="Website\assets\css\style.css" />
     <Content Include="Website\List_CartItems.aspx" />
+    <Content Include="Website\ManageCheckout.aspx" />
     <Content Include="Website\Products_Archive.aspx" />
     <Content Include="Website\Website.Master" />
   </ItemGroup>

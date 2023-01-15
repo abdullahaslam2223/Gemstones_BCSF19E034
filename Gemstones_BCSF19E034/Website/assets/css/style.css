@@ -19,8 +19,16 @@
 .theme-bg-secondary-outline {
     background-color: var(--secondary);
 }
-
 .theme-bg-secondary-outline:hover {
     border: 1px solid var(--secondary);
     color: var(--secondary);
+}
+
+.theme-btn-primary {
+    background-color: var(--primary);
+    color: white;
+}
+.theme-btn-primary:hover{
+    border: 1px solid var(--primary);
+    color: var(--primary);
 }

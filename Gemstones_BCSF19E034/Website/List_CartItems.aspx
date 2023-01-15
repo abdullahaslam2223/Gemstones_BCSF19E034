@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="Website_Head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Website_Content" runat="server">
+    <form runat="server">
     <div class="mx-3">
         <h1 class="text-center py-2 mt-1 theme-bg-primary text-light">Cart Items</h1>
         <asp:GridView runat="server" CssClass="table table-bordered" ID="GV_Cart_Items" AutoGenerateColumns="false">
@@ -20,5 +21,7 @@
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
+        <asp:HyperLink NavigateUrl="~/Website/ManageCheckout.aspx" runat="server" Text="Proceed to Checkout" CssClass="btn theme-btn-primary"></asp:HyperLink>
     </div>
+        </form>
 </asp:Content>
