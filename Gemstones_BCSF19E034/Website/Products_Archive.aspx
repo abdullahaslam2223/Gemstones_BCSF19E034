@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="Website_Head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Website_Content" runat="server">
-    <form runat="server" style="overflow-x: hidden;">
+    <form runat="server" class="mb-5" style="overflow-x: hidden;">
         <div class="row">
             <div class="col-3">
                 <h3 id="No_Categories" runat="server"></h3>
@@ -26,10 +26,12 @@
                         <div class="card mt-4" style="width: 18rem;">
                             <asp:Image ImageUrl='<%#"../assets/images/products/" + Eval("stone_image_url") %>' CssClass="image-fluid card-img-top" runat="server" Width="" Height="200px" />
                             <div class="card-body text-light theme-bg-primary">
-                                <h5 class="card-title text-center" style="font-size: 20px;"><%# Eval("stone_name") %></h5>
-                                <h5 class="card-title text-center" style="font-size: 20px;"><b>Price:</b> <span class="city"><%# String.Format("{0:0.00}", Eval("stone_price")) %></span>/pkr<br />
-                                </h5>
-                                <asp:LinkButton runat="server" ID="Product_Add_Cart_Btn" CssClass="btn mt-2 w-100 theme-bg-secondary-outline" CommandArgument='<%# Eval("stone_id") %>' Text="Add to Cart" OnCommand="Product_Add_Cart_Btn_Command" />
+                                <h5 class="card-title text-center bg-light text-dark py-2 rounded-1"><%# Eval("stone_name") %></h5>
+                                <h5 class="card-title text-center"><b>Rs:</b> <span><%# String.Format("{0:0}", Eval("stone_price")) %>
+                                <h6 class="card-title text-center">Stock: <span><%# Eval("stone_quantity") %>
+                                <h6 class="card-title text-center">Origin: <span><%# Eval("stone_origin") %>
+                                </h6>
+                                <asp:LinkButton runat="server" ID="Product_Add_Cart_Btn" Enabled='<%# Convert.ToInt32(Eval("stone_quantity")) == 0 ? false : true %>' CssClass="btn mt-2 w-100 theme-bg-secondary-outline" CommandArgument='<%# Eval("stone_id") %>' Text="Add to Cart" OnCommand="Product_Add_Cart_Btn_Command" />
                             </div>
                         </div>
                     </ItemTemplate>

@@ -24,8 +24,8 @@ namespace Gemstones_BCSF19E034
 					Admin_First_Name.Text = admin.user_firstName;
 					Admin_Last_Name.Text = admin.user_lastName;
 					Admin_Email.Text = admin.user_email;
-					Admin_Password.Text = Encryption.DecodeFrom64(admin.user_password);
-					Admin_Conf_Password.Text = Encryption.DecodeFrom64(admin.user_password);
+					//Admin_Password.Text = Encryption.DecodeFrom64(admin.user_password);
+					//Admin_Conf_Password.Text = Encryption.DecodeFrom64(admin.user_password);
                     Admin_Image_Display.ImageUrl = Configurations.AdminImagePath + admin.image_name;
                 }
 			}

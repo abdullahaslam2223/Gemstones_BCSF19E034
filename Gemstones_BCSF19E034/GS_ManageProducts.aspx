@@ -33,7 +33,7 @@
 
                                                 <div class="form-outline">
                                                     <asp:TextBox ID="Product_Stone_Price" runat="server" CssClass="form-control form-control" TextMode="Number"></asp:TextBox>
-                                                    <asp:Label CssClass="form-label mb-0" AssociatedControlID="Product_Stone_Price" Text="Stone Price" runat="server"></asp:Label>
+                                                    <asp:Label CssClass="form-label mb-0" AssociatedControlID="Product_Stone_Price" Text="Stone Price (Rs)" runat="server"></asp:Label>
                                                     <asp:RequiredFieldValidator ControlToValidate="Product_Stone_Price" Text="*" ForeColor="Red" runat="server"></asp:RequiredFieldValidator>
                                                 </div>
 
