@@ -31,5 +31,14 @@ namespace Gemstones_BCSF19E034.Website
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Remove_Cart_Item_Response;
+
+        /// <summary>
+        /// Total_Price control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Total_Price;
     }
 }

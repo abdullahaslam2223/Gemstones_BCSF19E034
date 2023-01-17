@@ -11,6 +11,9 @@
 .theme-bg-secondary {
     background-color: var(--secondary);
 }
+.theme-bg-secondary:hover {
+    background-color: #bf7e06;
+}
 
 .theme-bg-primary-outline {
 
@@ -30,5 +33,6 @@
 }
 .theme-btn-primary:hover{
     border: 1px solid var(--primary);
-    color: var(--primary);
+    color: white;
+    background-color: #070124;
 }

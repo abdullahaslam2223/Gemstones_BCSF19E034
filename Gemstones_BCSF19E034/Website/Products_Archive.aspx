@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="Website_Head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Website_Content" runat="server">
-    <form runat="server">
+    <form runat="server" style="overflow-x: hidden;">
         <div class="row">
             <div class="col-3">
                 <h3 id="No_Categories" runat="server"></h3>
@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="col-9">
-                <h3 id="No_Products" runat="server"></h3>
+                <h3 id="No_Products" class="text-center" runat="server"></h3>
 
                 <asp:DataList ID="DL_Products_Archive_Data" runat="server" RepeatLayout="Flow" CssClass="row" ItemStyle-CssClass="col">
                     <ItemTemplate>

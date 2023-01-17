@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -28,6 +29,13 @@ namespace Gemstones_BCSF19E034.Website
                         GV_Cart_Items.DataSource = result;
                         GV_Cart_Items.DataBind();
                     }
+                    int total_price = 0;
+                    foreach(var r in result)
+                    {
+                        total_price += Convert.ToInt32(r.stone_price);
+                    }
+                    string formated_price = total_price.ToString("N1", CultureInfo.CreateSpecificCulture("hi-IN"));
+                    Total_Price.InnerText = "Total : Rs " + formated_price;
                 }
             }
         }

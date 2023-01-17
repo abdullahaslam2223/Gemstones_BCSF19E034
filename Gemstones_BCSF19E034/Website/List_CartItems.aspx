@@ -27,7 +27,10 @@
             </Columns>
         </asp:GridView>
         <asp:Label runat="server" ID="Remove_Cart_Item_Response"></asp:Label>
+        <h4 id="Total_Price" class="text-end me-5" runat="server"></h4>
+        <div class="text-end me-5">
         <asp:HyperLink NavigateUrl="~/Website/ManageCheckout.aspx" runat="server" Text="Proceed to Checkout" CssClass="btn theme-btn-primary"></asp:HyperLink>
-    </div>
+        </div>
+        </div>
         </form>
 </asp:Content>
