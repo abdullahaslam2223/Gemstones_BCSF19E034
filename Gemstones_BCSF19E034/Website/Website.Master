@@ -33,6 +33,7 @@
                     </ul>
                     <div class="d-flex">
                         <asp:HyperLink runat="server" CssClass="btn theme-bg-secondary" NavigateUrl="~/Website/List_CartItems.aspx" Text="View Cart"></asp:HyperLink>
+                        <asp:HyperLink runat="server" CssClass="btn theme-bg-primary mx-2" Target="_blank" BorderColor="DarkBlue" NavigateUrl="~/GS_LoginForm.aspx" Text="Admin"></asp:HyperLink>
                     </div>
                 </div>
             </div>

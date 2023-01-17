@@ -1,9 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GS_Main.Master" AutoEventWireup="true" CodeBehind="GS_List_Products.aspx.cs" Inherits="Gemstones_BCSF19E034.GS_List_Products" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="AdminHead" runat="server">
     <script>
-        $(document).ready(function () {
-            $('#GV_Products').DataTable();
-        });
+        //$(document).ready(function () {
+        //    $('#GV_Products').prepend($("<thead><thead/>").append($(this).find("tr:first"))).DataTable();
+        //    //$('#GV_Products').DataTable();
+        //});
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="AdminBody" runat="server">
@@ -30,5 +31,6 @@
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
+        <asp:Label ID="Delete_Product_Response" CssClass="text-center text-info" runat="server"></asp:Label>
     </form>
 </asp:Content>

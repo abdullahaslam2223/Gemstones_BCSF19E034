@@ -12,7 +12,7 @@
             <Columns>
                  <asp:TemplateField HeaderText="Image">
                     <ItemTemplate>
-                        <asp:Image ImageUrl='<%# "~/assets/images/admins/" + Eval("image_name")%>' runat="server" Width="80px" />   
+                        <asp:Image ImageUrl='<%# "~/assets/images/admins/" + Eval("image_name") %>' runat="server" Width="80px" />   
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:BoundField DataField="user_firstName" HeaderText="First Name" />

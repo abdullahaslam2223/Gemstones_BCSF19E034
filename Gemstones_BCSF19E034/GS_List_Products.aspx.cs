@@ -13,7 +13,7 @@ namespace Gemstones_BCSF19E034
         {
             if (IsPostBack) return;
             FillProducts();
-            EnableJQueryDataTableForGridView();
+            //EnableJQueryDataTableForGridView();
         }
 
         protected void EnableJQueryDataTableForGridView()
@@ -51,12 +51,19 @@ namespace Gemstones_BCSF19E034
             {
                 Response.Redirect("GS_ManageProducts.aspx?id=" + e.CommandArgument);
             }
-            else
+            else if (e.CommandName == "delete")
             {
                 using (Gemstones_BCSF19E034Entities db = new Gemstones_BCSF19E034Entities())
                 {
-                    db.GS_Delete_Product(Convert.ToInt32(e.CommandArgument));
-
+                    int ProductID = Convert.ToInt32(e.CommandArgument);
+                    var ExistInCart = (from p in db.tbl_add_to_cart_temp where p.product_id == ProductID select p).ToList();
+                    var ExistInOrder = (from p in db.tbl_orders_details where p.product_id == ProductID select p).ToList();
+                    if(ExistInCart.Count > 0 || ExistInOrder.Count > 0)
+                    {
+                        Delete_Product_Response.Text = "You can't delete this product because either it's exist in cart or is in order processing";
+                        return;
+                    }
+                    db.GS_Delete_Product(ProductID);
                 }
                 FillProducts();
             }
