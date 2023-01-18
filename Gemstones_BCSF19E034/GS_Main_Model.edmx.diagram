@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2b979291fbb04780b560ec1d732ac72e" Name="Diagram1" ZoomLevel="103">
+      <Diagram DiagramId="2b979291fbb04780b560ec1d732ac72e" Name="Diagram1" ZoomLevel="79">
         <EntityTypeShape EntityType="Gemstones_BCSF19E034Model.tbl_add_to_cart_temp" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="Gemstones_BCSF19E034Model.tbl_admin_users" Width="1.5" PointX="5.75" PointY="6.875" IsExpanded="true" />
         <EntityTypeShape EntityType="Gemstones_BCSF19E034Model.tbl_orders_details" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />

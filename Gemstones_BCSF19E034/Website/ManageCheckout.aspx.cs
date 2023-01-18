@@ -38,16 +38,28 @@ namespace Gemstones_BCSF19E034.Website
                     var result = db.Web_Get_Cart_Products(unique_key).ToList();
                     if (result.Count > 0)
                     {
+                        tbl_products_stone stone = null;
                         foreach (var r in result)
                         {
                             details.product_id = r.stone_id;
                             details.product_price = r.stone_price;
                             details.customer_id = customer.customer_id;
                             db.tbl_orders_details.Add(details);
+
+                            // Managing Product Quantity when order is placed!
+                            stone = db.tbl_products_stone.FirstOrDefault(v => v.stone_id == details.product_id);
+                            stone.stone_quantity = stone.stone_quantity - 1;
                             db.SaveChanges();
                         }
                     }
+
+                    // Deleting Products when order is completed
+                    db.Web_Delete_All_Cart_Products(unique_key);
+
+
                 }
+
+
 
                 Place_Order_Response.Text = "<div class=\"alert alert-success mt-2 alert-dismissible fade show\" role=\"alert\">Your order has been placed successfully!</div>";
                 if(Customer_Email.Text != null)

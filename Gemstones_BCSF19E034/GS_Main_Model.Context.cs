@@ -131,5 +131,14 @@ namespace Gemstones_BCSF19E034
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Web_Get_Cart_Products_Result>("Web_Get_Cart_Products", unique_keyParameter);
         }
+    
+        public virtual int Web_Delete_All_Cart_Products(string unique_key)
+        {
+            var unique_keyParameter = unique_key != null ?
+                new ObjectParameter("unique_key", unique_key) :
+                new ObjectParameter("unique_key", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Web_Delete_All_Cart_Products", unique_keyParameter);
+        }
     }
 }

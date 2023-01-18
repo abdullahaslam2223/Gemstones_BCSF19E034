@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Gemstones_BCSF19E034Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Gemstones_BCSF19E034Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tbl_add_to_cart_temp">
           <Key>
             <PropertyRef Name="temp_id" />
@@ -206,6 +206,9 @@
         </Function>
         <Function Name="GS_Get_Admins" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="GS_Get_Products" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Web_Delete_All_Cart_Products" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="unique_key" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="Web_Delete_Cart_Product" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="temp_id" Type="int" Mode="In" />
         </Function>
@@ -251,8 +254,7 @@
             <End Role="tbl_products_stone" EntitySet="tbl_products_stone" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Gemstones_BCSF19E034Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -490,29 +492,32 @@
             <Parameter Name="password" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="GS_Delete_Admin">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GS_Delete_Product">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GS_Delete_Product_Category">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GS_Delete_Product_Color">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GS_Delete_Product_Shape">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GS_Delete_Product_Size">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GS_Get_Admins" ReturnType="Collection(Gemstones_BCSF19E034Model.GS_Get_Admins_Result)" />
           <FunctionImport Name="GS_Get_Products" ReturnType="Collection(Gemstones_BCSF19E034Model.GS_Get_Products_Result)" />
           <FunctionImport Name="Web_Delete_Cart_Product">
-            <Parameter Name="temp_id" Mode="In" Type="Int32" />
+          <Parameter Name="temp_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Web_Get_Cart_Products" ReturnType="Collection(Gemstones_BCSF19E034Model.Web_Get_Cart_Products_Result)">
+          <Parameter Name="unique_key" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Web_Delete_All_Cart_Products">
             <Parameter Name="unique_key" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
@@ -759,6 +764,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Web_Delete_All_Cart_Products" FunctionName="Gemstones_BCSF19E034Model.Store.Web_Delete_All_Cart_Products" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
