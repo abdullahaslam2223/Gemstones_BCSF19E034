@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-3">
                 <h3 id="No_Categories" runat="server"></h3>
-                <div class="position-sticky">
+                <div>
                     <div class="list-group list-group-flush mx-3 mt-4 menu-item">
                         <h3 class="text-center theme-bg-primary py-2 rounded-2">Categories</h3>
                         <asp:DataList runat="server" ID="DL_Product_Archive_Categories" RepeatLayout="Flow" RepeatDirection="Horizontal">
@@ -24,7 +24,7 @@
                 <asp:DataList ID="DL_Products_Archive_Data" runat="server" RepeatLayout="Flow" CssClass="row" ItemStyle-CssClass="col-lg-4 col-md-6 col-sm-12">
                     <ItemTemplate>
                         <div class="card mt-4">
-                            <asp:Image ImageUrl='<%#"../assets/images/products/" + Eval("stone_image_url") %>' CssClass="image-fluid card-img-top" runat="server" Width="" Height="200px" />
+                            <asp:Image ImageUrl='<%#"../assets/images/products/" + Eval("stone_image_url") %>' CssClass="image-fluid card-img-top" runat="server" Height="220px" />
                             <div class="card-body text-light theme-bg-primary">
                                 <h5 class="card-title text-center bg-light text-dark py-2 rounded-1"><%# Eval("stone_name") %></h5>
                                 <h5 class="card-title text-center"><b>Rs:</b> <span><%# string.Format("{0:0}", Eval("stone_price")) %>
