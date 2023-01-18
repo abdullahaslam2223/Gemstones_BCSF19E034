@@ -21,13 +21,13 @@
             <div class="col-9">
                 <h3 id="No_Products" class="text-center" runat="server"></h3>
 
-                <asp:DataList ID="DL_Products_Archive_Data" runat="server" RepeatLayout="Flow" CssClass="row" ItemStyle-CssClass="col">
+                <asp:DataList ID="DL_Products_Archive_Data" runat="server" RepeatLayout="Flow" CssClass="row" ItemStyle-CssClass="col-lg-4 col-md-6 col-sm-12">
                     <ItemTemplate>
-                        <div class="card mt-4" style="width: 18rem;">
+                        <div class="card mt-4">
                             <asp:Image ImageUrl='<%#"../assets/images/products/" + Eval("stone_image_url") %>' CssClass="image-fluid card-img-top" runat="server" Width="" Height="200px" />
                             <div class="card-body text-light theme-bg-primary">
                                 <h5 class="card-title text-center bg-light text-dark py-2 rounded-1"><%# Eval("stone_name") %></h5>
-                                <h5 class="card-title text-center"><b>Rs:</b> <span><%# String.Format("{0:0}", Eval("stone_price")) %>
+                                <h5 class="card-title text-center"><b>Rs:</b> <span><%# string.Format("{0:0}", Eval("stone_price")) %>
                                 <h6 class="card-title text-center">Stock: <span><%# Eval("stone_quantity") %>
                                 <h6 class="card-title text-center">Origin: <span><%# Eval("stone_origin") %>
                                 </h6>

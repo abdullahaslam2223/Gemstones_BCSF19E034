@@ -146,7 +146,7 @@ namespace Gemstones_BCSF19E034
                 }
 
                 stone.stone_name = Product_Stone_Name.Text;
-                stone.stone_price = Convert.ToInt32(Product_Stone_Price.Text);
+                stone.stone_price = Convert.ToInt32(Product_Stone_Price.Text.ToString().Substring(0, Product_Stone_Price.Text.ToString().IndexOf(".")));
                 stone.stone_description = Product_Stone_Description.Text;
                 stone.stone_category_id = Convert.ToInt32(Product_Stone_Category.SelectedValue);
                 stone.stone_color_id = Convert.ToInt32(Product_Stone_Color.SelectedValue);

@@ -34,7 +34,7 @@ namespace Gemstones_BCSF19E034.Website
                     {
                         total_price += Convert.ToInt32(r.stone_price);
                     }
-                    string formated_price = total_price.ToString("N1", CultureInfo.CreateSpecificCulture("hi-IN"));
+                    string formated_price = total_price.ToString("N1", CultureInfo.CreateSpecificCulture("ur-PK"));
                     Total_Price.InnerText = "Total : Rs " + formated_price + "/-";
                 }
             }
