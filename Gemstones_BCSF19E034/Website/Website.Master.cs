@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace Gemstones_BCSF19E034.Website
 {
@@ -28,6 +30,23 @@ namespace Gemstones_BCSF19E034.Website
             {
                 Response.Cookies["Gemstones_BCSF19E034_Website"]["unique_id"] = Genereate_Unique_ID();
                 Response.Cookies["Gemstones_BCSF19E034_Website"].Expires = DateTime.Now.AddDays(3);
+            }
+        }
+    }
+
+    public class Example
+    {
+        public static async Task<string> CallAPI()
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://jsonplaceholder.typicode.com/");
+
+                var response = await client.GetAsync("todos/1");
+                response.EnsureSuccessStatusCode();
+                var result = await response.Content.ReadAsStringAsync();
+
+                return result;
             }
         }
     }
