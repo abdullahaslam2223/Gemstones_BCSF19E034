@@ -306,6 +306,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <Content Include="Website\About.aspx" />
+    <Content Include="Website\assets\css\chatbot.css" />
     <Content Include="Website\assets\css\productsArchive\style.css" />
     <Content Include="Website\assets\css\style.css" />
     <Content Include="Website\Contact.aspx" />
