@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="Website_Head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Website_Content" runat="server">
-    <form runat="server">
+    <form runat="server" class="mb-3">
     <div class="mx-3">
         <h1 class="text-center py-2 mt-1 theme-bg-primary text-light">CART ITEMS</h1>
         <asp:GridView runat="server" CssClass="table table-bordered" ID="GV_Cart_Items" OnRowDeleting="GV_Cart_Items_RowDeleting" OnRowCommand="GV_Cart_Items_RowCommand" AutoGenerateColumns="false">
