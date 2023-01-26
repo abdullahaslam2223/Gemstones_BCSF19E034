@@ -38,16 +38,20 @@ namespace Gemstones_BCSF19E034.Website
             {
                 if(Request.QueryString["cid"] != null)
                 {
-                    int category_id = Convert.ToInt32(Request.QueryString["cid"]);
-                    var cresult = (from p in db.tbl_products_stone where p.stone_category_id == category_id select p).ToList();
-                    if (cresult.Count > 0)
+                    int category_id;
+                    if (int.TryParse(Request.QueryString["cid"],out category_id))
                     {
-                        DL_Products_Archive_Data.DataSource = cresult;
-                        DL_Products_Archive_Data.DataBind();
-                    }
-                    else
-                    {
-                        No_Products.InnerText = "No products found";
+                        category_id = Convert.ToInt32(Request.QueryString["cid"]);
+                        var cresult = (from p in db.tbl_products_stone where p.stone_category_id == category_id select p).ToList();
+                        if (cresult.Count > 0)
+                        {
+                            DL_Products_Archive_Data.DataSource = cresult;
+                            DL_Products_Archive_Data.DataBind();
+                        }
+                        else
+                        {
+                            No_Products.InnerText = "No products found";
+                        }
                     }
                 } else
                 {

@@ -16,7 +16,7 @@
                 <asp:BoundField DataField="stone_name" HeaderText="Stone Name" />
                 <asp:TemplateField HeaderText="Stone Price">
                     <ItemTemplate>
-                        <span>Rs : <%# String.Format("{0:0}", Eval("stone_price")) %>/-</span>
+                        <span>Price : <%# string.Format("{0:C}", Eval("stone_price")) %>/-</span>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Remove from Cart">

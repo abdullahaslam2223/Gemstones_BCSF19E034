@@ -27,11 +27,12 @@
                             <asp:Image ImageUrl='<%#"../assets/images/products/" + Eval("stone_image_url") %>' CssClass="image-fluid card-img-top" runat="server" Height="220px" />
                             <div class="card-body text-light theme-bg-primary">
                                 <h5 class="card-title text-center bg-light text-dark py-2 rounded-1"><%# Eval("stone_name") %></h5>
-                                <h5 class="card-title text-center"><b>Rs:</b> <span><%# string.Format("{0:0}", Eval("stone_price")) %>
+                                <h5 class="card-title text-center"><b>Price:</b> <span><%# string.Format("{0:C}", Eval("stone_price")) %>
                                 <h6 class="card-title text-center">Stock: <span><%# Eval("stone_quantity") %>
                                 <h6 class="card-title text-center">Origin: <span><%# Eval("stone_origin") %>
                                 </h6>
-                                <asp:LinkButton runat="server" ID="Product_Add_Cart_Btn" Enabled='<%# Convert.ToInt32(Eval("stone_quantity")) == 0 ? false : true %>' CssClass="btn mt-2 w-100 theme-bg-secondary-outline" CommandArgument='<%# Eval("stone_id") %>' Text="Add to Cart" OnCommand="Product_Add_Cart_Btn_Command" />
+                                    <span id="Add_To_Cart_Response" style="font-weight: lighter"></span>
+                                <asp:Button runat="server" ID="Product_Add_Cart_Btn" CssClass="btn mt-2 w-100 theme-bg-secondary-outline" Enabled='<%# Convert.ToInt32(Eval("stone_quantity")) == 0 ? false : true %>' CommandArgument='<%# Eval("stone_id") %>' Text="Add to Cart" OnCommand="Product_Add_Cart_Btn_Command" />
                             </div>
                         </div>
                     </ItemTemplate>
