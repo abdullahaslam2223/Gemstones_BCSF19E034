@@ -44,11 +44,6 @@
 
                                         <asp:HyperLink NavigateUrl="~/GS_ForgotPassword.aspx" CssClass="text-muted" Text="Forgot password?" runat="server"></asp:HyperLink>
                                     </div>
-
-                                    <div class="d-flex align-items-center justify-content-center pb-4">
-                                        <p class="mb-0 me-2">Don't have an account?</p>
-                                        <asp:Button CssClass="btn theme-btn" ID="Login_Create_New_Btn" Text="Create new" runat="server" />
-                                    </div>
                                 </form>
                             </div>
                         </div>
