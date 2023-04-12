@@ -112,6 +112,7 @@
     </Content>
     <Content Include="GS_ManageAdmins.aspx" />
     <Content Include="GS_ManageProducts.aspx" />
+    <Content Include="GS_ProductDetails.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -208,6 +209,13 @@
     </Compile>
     <Compile Include="GS_ManageProducts.aspx.designer.cs">
       <DependentUpon>GS_ManageProducts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GS_ProductDetails.aspx.cs">
+      <DependentUpon>GS_ProductDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GS_ProductDetails.aspx.designer.cs">
+      <DependentUpon>GS_ProductDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tbl_add_to_cart_temp.cs">

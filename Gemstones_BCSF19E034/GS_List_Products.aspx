@@ -21,6 +21,11 @@
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:BoundField DataField="stone_name" HeaderText="Stone Name" />
+                <%--<asp:TemplateField HeaderText="Stone Name">
+                    <ItemTemplate>
+                        <asp:HyperLink runat="server" NavigateUrl='<%# "~/GS_ProductDetails.aspx?id=" + Eval("stone_id") %>' Text='<%# Eval("stone_name") %>'></asp:HyperLink>
+                    </ItemTemplate>
+                </asp:TemplateField>--%>
                 <asp:BoundField DataField="stone_price" HeaderText="Stone Price" />
                 <asp:BoundField DataField="category_name" HeaderText="Stone Category" />
                 <asp:TemplateField HeaderText="Actions">

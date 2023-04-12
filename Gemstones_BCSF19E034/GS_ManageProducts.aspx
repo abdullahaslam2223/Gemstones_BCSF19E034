@@ -7,7 +7,7 @@
 
     <section class="h-100 h-custom gradient-custom-2">
         <div style="background-color: #edf0ee;" class="px-3 py-3 mb-3 rounded">
-            <asp:HyperLink NavigateUrl="~/GS_List_Products.aspx" CssClass="btn btn-outline-info" Text="View Products" runat="server"></asp:HyperLink>
+            <asp:HyperLink NavigateUrl="~/GS_List_Products.aspx" CssClass="btn btn-outline-primary" Text="View Products" runat="server"></asp:HyperLink>
         </div>
         <div class="container pb-4 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">

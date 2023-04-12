@@ -71,9 +71,9 @@
                 <ul class="navbar-nav ms-auto d-flex flex-row">
 
                     <!-- Link -->
-                    <li class="nav-item me-3 me-lg-0">
+                    <%--<li class="nav-item me-3 me-lg-0">
                         <a class="nav-link" target="_blank" href="Website/Products_Archive.aspx">Visit Site</a>
-                    </li>
+                    </li>--%>
 
                     <!-- Link -->
                     <li class="nav-item">

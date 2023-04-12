@@ -23,7 +23,7 @@ namespace Gemstones_BCSF19E034
                 if (user_info.Count > 0)
                 {
                     string password = Encryption.DecodeFrom64(user_info[0].user_password);
-                    string message = "You password is '" + password + "'";
+                    string message = "Your password is '" + password + "'";
                     if (Email.SendEmail(Forgot_Password_Email.Text, user_info[0].user_firstName, message, "", ""))
                     {
                         Send_Email_Response.Text = "<div class=\"alert alert-success mt-2 alert-dismissible fade show\" role=\"alert\">Email Sent successfully</div>";

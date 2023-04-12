@@ -44,6 +44,7 @@ namespace Gemstones_BCSF19E034
                 throw new Exception("Error in base64Encode" + ex.Message);
             }
         }
+
         //this function Convert to Decord your Password
         public static string DecodeFrom64(string encodedData)
         {
