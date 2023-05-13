@@ -63,7 +63,7 @@
                         <!--Controls-->
                         <div class="col-1 align-self-center">
                             <a class="h1" href="#templatemo-slide-brand" role="button" data-bs-slide="prev">
-                                <i class="text-light fas fa-chevron-left"></i>
+                                <i class="text-dark fas fa-chevron-left"></i>
                             </a>
                         </div>
                         <!--End Controls-->
@@ -78,16 +78,16 @@
                                     <div class="carousel-item active">
                                         <div class="row">
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_01.png" alt="Brand Logo"></a>
+                                                <a href="#"><img class="img-fluid brand-img" src="assets/images/brands/Emerald.jpg" alt="Brand Logo"></a>
                                             </div>
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_02.png" alt="Brand Logo"></a>
+                                                <a href="#"><img class="img-fluid brand-img" src="assets/images/brands/Pearl.jpg" alt="Brand Logo"></a>
                                             </div>
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_03.png" alt="Brand Logo"></a>
+                                                <a href="#"><img class="img-fluid brand-img" src="assets/images/brands/Sapphire.jpeg" alt="Brand Logo"></a>
                                             </div>
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_04.png" alt="Brand Logo"></a>
+                                                <a href="#"><img class="img-fluid brand-img" src="assets/images/brands/Diamond.jpg" alt="Brand Logo"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -97,23 +97,23 @@
                                     <div class="carousel-item">
                                         <div class="row">
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_01.png" alt="Brand Logo"></a>
+                                                <a href="#"><img class="img-fluid brand-img" src="assets/images/brands/Jasper.png" alt="Brand Logo"></a>
                                             </div>
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_02.png" alt="Brand Logo"></a>
+                                                <a href="#"><img class="img-fluid brand-img" src="assets/images/brands/Peridot.png" alt="Brand Logo"></a>
                                             </div>
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_03.png" alt="Brand Logo"></a>
+                                                <a href="#"><img class="img-fluid brand-img" src="assets/images/brands/Zircone.png" alt="Brand Logo"></a>
                                             </div>
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_04.png" alt="Brand Logo"></a>
+                                                <a href="#"><img class="img-fluid brand-img" src="assets/images/brands/Ruby.jpg" alt="Brand Logo"></a>
                                             </div>
                                         </div>
                                     </div>
                                     <!--End Second slide-->
 
                                     <!--Third slide-->
-                                    <div class="carousel-item">
+                                    <%--<div class="carousel-item">
                                         <div class="row">
                                             <div class="col-3 p-md-5">
                                                 <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_01.png" alt="Brand Logo"></a>
@@ -128,7 +128,7 @@
                                                 <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_04.png" alt="Brand Logo"></a>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>--%>
                                     <!--End Third slide-->
 
                                 </div>
@@ -140,7 +140,7 @@
                         <!--Controls-->
                         <div class="col-1 align-self-center">
                             <a class="h1" href="#templatemo-slide-brand" role="button" data-bs-slide="next">
-                                <i class="text-light fas fa-chevron-right"></i>
+                                <i class="text-dark fas fa-chevron-right"></i>
                             </a>
                         </div>
                         <!--End Controls-->

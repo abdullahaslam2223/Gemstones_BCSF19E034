@@ -93,6 +93,7 @@
     <Content Include="assets\js\datatables.js" />
     <Content Include="assets\js\jquery.js" />
     <Content Include="assets\js\popper.min.js" />
+    <Content Include="Globals\global.css" />
     <Content Include="GS_ForgotPassword.aspx" />
     <Content Include="GS_List_Admins.aspx" />
     <Content Include="GS_List_Products.aspx" />
@@ -318,12 +319,21 @@
     <Content Include="Website\assets\css\chatbot.css" />
     <Content Include="Website\assets\css\productsArchive\style.css" />
     <Content Include="Website\assets\css\style.css" />
+    <Content Include="Website\assets\images\brands\Diamond.jpg" />
+    <Content Include="Website\assets\images\brands\Emerald.jpg" />
+    <Content Include="Website\assets\images\brands\Jasper.png" />
+    <Content Include="Website\assets\images\brands\Pearl.jpg" />
+    <Content Include="Website\assets\images\brands\Peridot.png" />
+    <Content Include="Website\assets\images\brands\Ruby.jpg" />
+    <Content Include="Website\assets\images\brands\Sapphire.jpeg" />
+    <Content Include="Website\assets\images\brands\Zircone.png" />
     <Content Include="Website\Contact.aspx" />
     <Content Include="Website\HomePage.aspx" />
     <Content Include="Website\List_CartItems.aspx" />
     <Content Include="Website\ManageCheckout.aspx" />
     <Content Include="Website\Products_Archive.aspx" />
     <Content Include="Website\Website.Master" />
+    <Content Include="Website\assets\images\brands\Diamond.webp" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\images\admins\" />

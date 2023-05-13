@@ -1,0 +1,59 @@
+﻿:root {
+    --primary: darkblue;
+    --secondary: orange;
+}
+
+.theme-text-primary {
+    color: var(--primary);
+}
+
+.theme-text-secondary {
+    color: var(--secondary);
+}
+
+.theme-bg-primary {
+    background-color: var(--primary);
+    color: white;
+}
+
+.theme-bg-secondary {
+    background-color: var(--secondary);
+}
+
+.theme-bg-secondary:hover {
+    background-color: #bf7e06;
+}
+
+.theme-bg-primary-outline {
+}
+
+.theme-bg-secondary-outline {
+    background-color: var(--secondary);
+}
+
+.theme-bg-secondary-outline:hover {
+    border: 1px solid var(--secondary);
+    color: var(--secondary);
+}
+
+.theme-btn-primary {
+    background-color: var(--primary);
+    color: white;
+}
+
+.theme-btn-primary:hover {
+    border: 1px solid var(--primary);
+    color: white;
+    background-color: #070124;
+}
+
+.theme-btn-secondary {
+    background-color: var(--secondary);
+    color: black;
+}
+
+.theme-btn-secondary:hover {
+    border: 1px solid var(--secondary);
+    color: black;
+    background-color: #bf6804;
+}

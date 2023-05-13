@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Website_Content" runat="server">
 
     <!-- Start Content Page -->
-    <div class="container-fluid bg-light py-5">
+    <div class="container-fluid py-5">
         <div class="col-md-6 m-auto text-center">
             <h1 class="h1">Contact Us</h1>
             <p>
@@ -15,7 +15,7 @@
     </div>
 
     <!-- Start Contact -->
-    <div class="container py-5">
+    <div class="container-fluid bg-light py-5">
         <div class="row py-5">
             <form class="col-md-9 m-auto" method="post" role="form">
                 <div class="row">
@@ -38,7 +38,7 @@
                 </div>
                 <div class="row">
                     <div class="col text-end mt-2">
-                        <button type="submit" class="btn btn-success btn-lg px-3">Let’s Talk</button>
+                        <button type="submit" class="btn theme-btn-secondary px-3">Send</button>
                     </div>
                 </div>
             </form>
