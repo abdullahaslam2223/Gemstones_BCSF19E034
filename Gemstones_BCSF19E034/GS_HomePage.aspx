@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="AdminBody" runat="server">
     <form id="HomePageForm" runat="server">
         <div>
-            <h1>Home Page</h1>
+            <h1>It's in progress</h1>
         </div>
     </form>
 </asp:Content>

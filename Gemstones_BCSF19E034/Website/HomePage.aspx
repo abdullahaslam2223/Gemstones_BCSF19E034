@@ -40,11 +40,10 @@
                         </div>
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
                             <div class="text-align-left">
-                                <h1 class="h1">Proident occaecat</h1>
-                                <h3 class="h2">Aliquip ex ea commodo consequat</h3>
+                                <h1 class="h1">Gemstone Jewelry</h1>
+                                <h3 class="h2">Elevate Your Style to Extraordinary Heights</h3>
                                 <p>
-                                    You are permitted to use this Zay CSS template for your commercial websites. 
-                                    You are <strong>not permitted</strong> to re-distribute the template ZIP file in any kind of template collection websites.
+                                    Indulge in the enchanting allure of Gemstone Delights, where timeless elegance meets the awe-inspiring beauty of nature. Our exquisite collection of gemstone products is meticulously crafted to captivate your senses and enhance your style.
                                 </p>
                             </div>
                         </div>
@@ -59,11 +58,10 @@
                         </div>
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
                             <div class="text-align-left">
-                                <h1 class="h1">Repr in voluptate</h1>
-                                <h3 class="h2">Ullamco laboris nisi ut </h3>
+                                <h1 class="h1">Healing Gemstone Infused Accessories</h1>
+                                <h3 class="h2">Nurture Your Mind, Body, and Soul</h3>
                                 <p>
-                                    We bring you 100% free CSS templates for your websites. 
-                                    If you wish to support TemplateMo, please make a small contribution via PayPal or tell your friends about our website. Thank you.
+                                   Experience the holistic power of gemstones with our healing gemstone infused accessories. Crafted with care and imbued with positive energy, these accessories not only enhance your style but also promote well-being.
                                 </p>
                             </div>
                         </div>
@@ -88,8 +86,7 @@
                 <div class="col-lg-6 m-auto">
                     <h1 class="h1 theme-text-primary">Categories of The Month</h1>
                     <p>
-                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt mollit anim id est laborum.
+                        Here are the list of all the lists of categories which are more in demand.
                     </p>
                 </div>
             </div>
@@ -124,8 +121,7 @@
                 <div class="col-lg-6 m-auto">
                     <h1 class="h1 theme-text-primary">Featured Product</h1>
                     <p>
-                        Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                        Excepteur sint occaecat cupidatat non proident.
+                        Here are the lists all the featured products
                     </p>
                 </div>
             </div>
@@ -146,9 +142,9 @@
                                 </li>
                                 <li class="text-muted text-right">$240.00</li>
                             </ul>
-                            <a href="shop-single.html" class="h2 text-decoration-none text-dark">Gym Weight</a>
+                            <a href="shop-single.html" class="h2 text-decoration-none text-dark">Diamond</a>
                             <p class="card-text">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt in culpa qui officia deserunt.
+                                Known as the "king of gemstones," diamonds symbolize eternal love and brilliance.
                             </p>
                             <p class="text-muted">Reviews (24)</p>
                         </div>
@@ -170,9 +166,9 @@
                                 </li>
                                 <li class="text-muted text-right">$480.00</li>
                             </ul>
-                            <a href="shop-single.html" class="h2 text-decoration-none text-dark">Cloud Nike Shoes</a>
+                            <a href="shop-single.html" class="h2 text-decoration-none text-dark">Ruby</a>
                             <p class="card-text">
-                                Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo ullamcorper.
+                                With its deep red hue, the ruby exudes passion, strength, and vitality. As a symbol of love and power.
                             </p>
                             <p class="text-muted">Reviews (48)</p>
                         </div>
@@ -194,9 +190,9 @@
                                 </li>
                                 <li class="text-muted text-right">$360.00</li>
                             </ul>
-                            <a href="shop-single.html" class="h2 text-decoration-none text-dark">Summer Addides Shoes</a>
+                            <a href="shop-single.html" class="h2 text-decoration-none text-dark">Sapphire</a>
                             <p class="card-text">
-                                Curabitur ac mi sit amet diam luctus porta. Phasellus pulvinar sagittis diam, et scelerisque ipsum lobortis nec.
+                                Adored for its velvety blue hue, the sapphire is associated with wisdom, nobility, and faithfulness.
                             </p>
                             <p class="text-muted">Reviews (74)</p>
                         </div>

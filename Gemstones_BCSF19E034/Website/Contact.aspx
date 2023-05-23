@@ -8,8 +8,7 @@
         <div class="col-md-6 m-auto text-center">
             <h1 class="h1">Contact Us</h1>
             <p>
-                Proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                Lorem ipsum dolor sit amet.
+                If you have any queries you didn't get satisfied, feel free to contact us.
             </p>
         </div>
     </div>
