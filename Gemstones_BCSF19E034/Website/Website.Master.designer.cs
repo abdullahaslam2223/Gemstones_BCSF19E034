@@ -24,6 +24,15 @@ namespace Gemstones_BCSF19E034.Website
         protected global::System.Web.UI.WebControls.ContentPlaceHolder Website_Head;
 
         /// <summary>
+        /// ChatbotResponses control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel ChatbotResponses;
+
+        /// <summary>
         /// Website_Content control.
         /// </summary>
         /// <remarks>
