@@ -16,30 +16,31 @@
     <!-- Start Contact -->
     <div class="container-fluid bg-light py-5">
         <div class="row py-5">
-            <form class="col-md-9 m-auto" method="post" role="form">
+            <form class="col-md-9 m-auto" method="post" role="form" runat="server">
                 <div class="row">
                     <div class="form-group col-md-6 mb-3">
                         <label for="inputname">Name</label>
-                        <input type="text" class="form-control mt-1" id="name" name="name" placeholder="Name">
+                        <asp:TextBox runat="server" ID="contactName" CssClass="form-control mt-1"></asp:TextBox>
                     </div>
                     <div class="form-group col-md-6 mb-3">
                         <label for="inputemail">Email</label>
-                        <input type="email" class="form-control mt-1" id="email" name="email" placeholder="Email">
+                        <asp:TextBox runat="server" ID="contactEmail" CssClass="form-control mt-1"></asp:TextBox>
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="inputsubject">Subject</label>
-                    <input type="text" class="form-control mt-1" id="subject" name="subject" placeholder="Subject">
+                    <asp:TextBox runat="server" ID="contactSubject" CssClass="form-control mt-1"></asp:TextBox>
                 </div>
                 <div class="mb-3">
                     <label for="inputmessage">Message</label>
-                    <textarea class="form-control mt-1" id="message" name="message" placeholder="Message" rows="8"></textarea>
+                    <asp:TextBox runat="server" TextMode="MultiLine" Rows="8" ID="contactMessage" CssClass="form-control mt-1"></asp:TextBox>
                 </div>
                 <div class="row">
                     <div class="col text-end mt-2">
-                        <button type="submit" class="btn theme-btn-secondary px-3">Send</button>
+                        <asp:Button CssClass="btn theme-btn-secondary px-3" Text="Send" ID="btnContact" OnClick="btnContact_Click" runat="server" />
                     </div>
                 </div>
+                <asp:Label runat="server" ID="Contact_Response"></asp:Label>
             </form>
         </div>
     </div>
