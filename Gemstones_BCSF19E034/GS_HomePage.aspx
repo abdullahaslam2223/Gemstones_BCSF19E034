@@ -19,7 +19,7 @@
         <asp:Repeater runat="server" ID="orderDetailsRepeater">
             <ItemTemplate>
                 <tr>
-                    <td><asp:Image ImageUrl='<%# "~/assets/images/products/" + Eval("stone_image_url")%>' runat="server" /></td>
+                    <td><asp:Image CssClass="p-img" ImageUrl='<%# "~/assets/images/products/" + Eval("stone_image_url")%>' runat="server" /></td>
                     <td><%# Eval("stone_name") %></td>
                     <td><%# Eval("customer_last_name") %> <%# Eval("customer_first_name") %></td>
                     <td><%# Eval("customer_billing_address") %></td>
