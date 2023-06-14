@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="AdminBody" runat="server">
     <form id="HomePageForm" runat="server">
         <table>
-        <h1 style="background-color:darkblue; color: white;">Orders</h1>
+        <h1 style="background-color:darkblue; color: white;">Placed Orders</h1>
         <tr style="text-align: center;">
             <th>Product</th>
             <th>Name</th>

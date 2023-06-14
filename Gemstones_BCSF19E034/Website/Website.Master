@@ -10,6 +10,16 @@
     <%--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-rZdFBAdBKGPGU3KfUpy3+PLgxJ5alb8w0hKp5V0Lc1YqlW1KjEEb0a0I7IpFVIei" crossorigin="anonymous">--%>
     <link href="assets/css/style.css" rel="stylesheet" />
     <link href="../Globals/global.css" rel="stylesheet" />
+    <style>
+    .speaker-icon {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .speaker-icon.active {
+      color: green;
+    }
+  </style>
     <asp:ContentPlaceHolder ID="Website_Head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -75,8 +85,6 @@
                                                 <h5 class="mb-0">Chat</h5>
                                                 <button type="button" class="btn btn-primary btn-sm" data-mdb-ripple-color="dark">
                                                     Customer Support 24/7</button>
-                                                <button id="start-voice">Start</button>
-                                                <button id="stop-voice">Stop</button>
                                             </div>
                                             <div class="card-body overflow-auto" data-mdb-perfect-scrollbar="true" style="position: relative; height: 350px">
                                                 <div id="ChatbotResponses">
@@ -88,9 +96,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <%--<div class="card-footer text-muted d-flex justify-content-start align-items-center p-3">
-                                                    
-                                                </div>--%>
                                             </div>
                                         </div>
                                     </div>
@@ -109,7 +114,8 @@
                             <%--<a class="ms-3 text-muted" href="#!"><i class="fas fa-smile"></i></a>--%>
                             <button type="submit" class="ms-1 me-2"><i class="fas fa-paper-plane" style="width: 20px;"></i></button>
                         </form>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <%--<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>--%>
+                        <i class="fas fa-volume-up speaker-icon" style="margin-right: 50px;" id="recordButton"></i>
                     </div>
                 </div>
             </div>
@@ -311,30 +317,40 @@
 
         // Voice Recognition
 
-        const SpeechRecognition =
-            window.SpeechRecognition || window.webkitSpeechRecognition;
-        const recognition = new SpeechRecognition();
+        // Initialize speech recognition
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        let recognition;
+        const speakerIcon = document.getElementById('recordButton');
 
-        const output = document.querySelector("#requestMessage");
-        const startBtn = document.querySelector("#start-voice");
-        const stopBtn = document.querySelector("#stop-voice");
+        // Set language for speech recognition (e.g., 'en-US', 'en-GB', 'es-ES')
+        const recognitionLang = 'en-US';
 
-        recognition.continuous = true;
+        // Handle button click event
+        document.getElementById('recordButton').addEventListener('click', function () {
+            if (!recognition) {
+                recognition = new SpeechRecognition();
+                recognition.lang = recognitionLang;
+                recognition.interimResults = true;
 
-        startBtn.addEventListener("click", () => {
-            recognition.start();
-        });
+                recognition.onstart = function () {
+                    speakerIcon.classList.add('active');
+                };
 
-        stopBtn.addEventListener("click", () => {
-            recognition.stop();
-        });
+                recognition.onresult = function (event) {
+                    const result = event.results[event.results.length - 1][0].transcript;
+                    console.log(result);
+                    document.getElementById('requestMessage').value = result;
+                };
 
-        recognition.addEventListener("result", (event) => {
-            const transcript = Array.from(event.results)
-                .map((result) => result[0].transcript)
-                .join("");
+                recognition.onend = function () {
+                    speakerIcon.classList.remove('active');
+                    recognition = null;
+                };
 
-            output.value = transcript;
+                recognition.start();
+            } else {
+                recognition.stop();
+            }
         });
     </script>
 </body>
